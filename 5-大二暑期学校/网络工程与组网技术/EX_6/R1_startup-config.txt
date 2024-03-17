@@ -1,0 +1,156 @@
+!
+version 12.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+ipv6 unicast-routing
+!
+no ipv6 cef
+!
+!
+!
+username se secret 5 $1$mERr$mo5w8Vf1taR9pYrH5yQoz/
+!
+!
+crypto isakmp policy 1
+ encr aes 256
+ authentication pre-share
+ group 2
+!
+crypto isakmp key nj-to-sh address 221.226.30.10
+!
+!
+!
+crypto ipsec transform-set R1 esp-aes 256 esp-sha-hmac
+!
+crypto map R1-map 1 ipsec-isakmp 
+ set peer 221.226.30.10
+ set transform-set R1 
+ match address 100
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Tunnel0
+ no ip address
+ mtu 1476
+ ipv6 address 2001:250:A160:3::1/64
+ ipv6 enable
+ tunnel source FastEthernet1/0
+ tunnel destination 221.226.30.10
+ tunnel mode ipv6ip
+!
+!
+interface FastEthernet0/0
+ ip address 192.168.255.2 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:250:A160:9::2/64
+ ipv6 enable
+!
+interface FastEthernet0/1
+ ip address 192.168.255.6 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:250:A160:10::2/64
+!
+interface Ethernet0/1/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface Ethernet0/3/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet1/0
+ ip address 221.226.30.1 255.255.255.252
+ duplex auto
+ speed auto
+ crypto map R1-map
+!
+interface FastEthernet1/1
+ ip address 202.226.30.5 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ log-adjacency-changes
+ network 221.226.30.0 0.0.0.3 area 1
+ network 202.226.30.4 0.0.0.3 area 1
+ network 192.168.255.0 0.0.0.3 area 1
+ network 192.168.255.4 0.0.0.3 area 1
+!
+router bgp 65511
+ bgp log-neighbor-changes
+ no synchronization
+ neighbor 221.226.30.2 remote-as 65512
+ neighbor 202.226.30.6 remote-as 65512
+ redistribute ospf 65511 
+!
+ip classless
+ip route 8.8.8.8 255.255.255.255 202.226.30.6 
+ip route 192.168.10.16 255.255.255.240 192.168.255.1 
+ip route 192.168.20.0 255.255.255.252 221.226.30.2 
+ip route 192.168.20.32 255.255.255.224 221.226.30.2 
+!
+ip flow-export version 9
+!
+ipv6 route 2001:250:A160:4::/64 2001:250:A160:9::1
+ipv6 route 2001:250:A160:5::/64 2001:250:A160:9::1
+ipv6 route 2001:250:A160:6::/64 2001:250:A160:10::1
+ipv6 route 2001:250:A160:7::/64 2001:250:A160:10::1
+ipv6 route 2001:250:A160:8::/64 2001:250:A160:10::1
+ipv6 route 2001:250:A160:1::/64 2001:250:A160:3::2
+!
+access-list 1 permit host 192.168.10.10
+access-list 100 permit ip 192.168.20.0 0.0.0.255 192.168.20.0 0.0.0.224
+access-list 100 permit ip 192.168.10.32 0.0.0.31 192.168.20.0 0.0.0.224
+access-list 100 permit ip 192.168.10.16 0.0.0.15 192.168.20.0 0.0.0.224
+access-list 100 permit ip 192.168.10.8 0.0.0.7 192.168.20.0 0.0.0.224
+access-list 100 permit ip 192.168.10.64 0.0.0.63 192.168.20.0 0.0.0.224
+access-list 100 permit ip 210.28.91.0 0.0.0.255 192.168.20.0 0.0.0.224
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ access-class 1 in
+ login local
+ transport input telnet
+!
+!
+!
+end
+

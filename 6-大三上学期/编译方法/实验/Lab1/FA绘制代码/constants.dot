@@ -1,0 +1,16 @@
+// [+-]?[0-9]+(\.[0-9]+)?
+digraph constants {
+    rankdir = LR;
+    node [shape = circle; style = rounded;];
+    
+    s [style = invis;];
+    1 [shape = doublecircle;];
+    3 [shape = doublecircle;];
+    
+    s -> 0;
+    0 -> 1 [label = "[0-9]";];
+    1 -> 1 [label = "[0-9]";];
+    1 -> 2 [label = "\\.";];
+    2 -> 3 [label = "[0-9]";];
+    3 -> 3 [label = "[0-9]";];
+}

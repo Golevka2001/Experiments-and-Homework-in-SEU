@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="EX_3">
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_3_1|EX_3:inst|LPM_RAM_DQ:RAM|altram:sram|altsyncram:ram_block" CBX_FILE_NAME="altsyncram_fr71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_3_1|EX_3:inst|LPM_ROM:ROM|altrom:srom|altsyncram:rom_block" CBX_FILE_NAME="altsyncram_3101.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_3_1|EX_3:inst|lpm_mux0:inst4|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_jbe.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

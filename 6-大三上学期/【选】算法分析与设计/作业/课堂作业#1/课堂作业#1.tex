@@ -1,0 +1,48 @@
+\documentclass[a4paper]{ctexart}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[textwidth=14.5cm]{geometry}
+\usepackage{blindtext}
+\parindent=0pt
+
+\begin{document}
+\begin{sloppypar}
+    \begin{proof}
+        已知:
+        $$
+            T(n) =
+            \left\{
+            \begin{aligned}
+                 & O(1)                   & n =1  \\
+                 & kT(\frac{n}{m}) + f(n) & n > 1
+            \end{aligned}
+            \right.
+        $$
+        当$n > 1$时, 有
+        \begin{equation}
+            \begin{aligned}
+                \nonumber
+                T(n) & = kT(\frac{n}{m}) + f(n)                                                              \\
+                     & = k[kT(\frac{n}{m^2}) + f(\frac{n}{m})] +f(n)                                         \\
+                     & = k^2T(\frac{n}{m^2}) + kf(\frac{n}{m}) + f(n)                                        \\
+                     & = k^2[kT(\frac{n}{m^3}) + f(\frac{n}{m^2})] + kf(\frac{n}{m}) + f(n)                  \\
+                     & = k^3T(\frac{n}{m^3}) + k^2f(\frac{n}{m^2}) + kf(\frac{n}{m}) + f(n)                  \\
+                     & \;\;\vdots                                                                            \\
+                     & = k^xT(\frac{n}{m^x}) + k^{x-1}f(\frac{n}{m^{x-1}}) + \cdots + kf(\frac{n}{m}) + f(n) \\
+            \end{aligned}
+        \end{equation}
+        令$\frac{n}{m^x} = 1$, 则有$x = \log_{m}{n}$\\
+        \begin{equation}
+            \begin{aligned}
+                \nonumber
+                T(n) & = k^{\log_{m}{n}}T(1) + k^{\log_{m}{n}-1}f(\frac{n}{m^{\log_{m}{n}-1}}) + \cdots + kf(\frac{n}{m}) + f(n) \\
+                     & = k^{\log_{m}{n}}O(1) + \sum_{i=0}^{\log_{m}{n}-1}k^if(\frac{n}{m^i})                                     \\
+                     & = k^{\frac{\log_{k}{n}}{\log_{k}{m}}}O(1) + \sum_{i=0}^{\log_{m}{n}-1}k^if(\frac{n}{m^i})                 \\
+                     & = k^{\log_{k}{n}\log_{m}{k}}O(1) + \sum_{i=0}^{\log_{m}{n}-1}k^if(\frac{n}{m^i})                          \\
+                     & = n^{\log_{m}{k}}O(1) + \sum_{i=0}^{\log_{m}{n}-1}k^if(\frac{n}{m^i})                                     \\
+            \end{aligned}
+        \end{equation}
+    \end{proof}
+\end{sloppypar}
+\end{document}

@@ -1,0 +1,165 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Quartus\Project\EX_3\simulation\qsim
+vEX_3
+Z1 IS?GCDG3PEdAMggi>>I;aj3
+Z2 VlRDdCGfmZP;2;A@<GM5g[1
+Z3 dD:\Quartus\Project\EX_3\simulation\qsim
+Z4 w1636529822
+Z5 8EX_3.vo
+Z6 FEX_3.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|EX_3.vo|
+Z9 o-work work -O0
+Z10 n@e@x_3
+Z11 !s100 ljkaFRGFIbJz0jHGg2QD=3
+Z12 !s108 1636529823.274000
+Z13 !s107 EX_3.vo|
+!i10b 1
+!s85 0
+!s101 -O0
+vEX_3_1
+Z14 !s100 TO=_K>bEG:?>NiCK5Vez80
+Z15 IM`:l;<@aGGY=T7P=bdon>2
+Z16 V^>Y3dKX>L=TeoeB<CJZYD2
+R3
+Z17 w1636540467
+R5
+R6
+L0 31
+R7
+r1
+31
+R8
+R9
+Z18 n@e@x_3_1
+!i10b 1
+!s85 0
+Z19 !s108 1636540468.588000
+R13
+!s101 -O0
+vEX_3_1_vlg_check_tst
+!i10b 1
+!s100 >@2XTNT>dm=oLdX0aORn23
+InR?J51`oTaMB7NUBFJ1fP2
+Z20 Vc:QQZCQ@n4TIjC1gL;n620
+R3
+Z21 w1636540465
+Z22 8EX_3_1.vwf.vt
+Z23 FEX_3_1.vwf.vt
+L0 69
+R7
+r1
+!s85 0
+31
+Z24 !s108 1636540468.695000
+Z25 !s107 EX_3_1.vwf.vt|
+Z26 !s90 -work|work|EX_3_1.vwf.vt|
+!s101 -O0
+R9
+Z27 n@e@x_3_1_vlg_check_tst
+vEX_3_1_vlg_sample_tst
+!i10b 1
+Z28 !s100 k`bRkQRSO@kESIbUFk7gV2
+Z29 I?lRIbKRIo4TSVEXIIJ9<b0
+Z30 V@S;7806F<cEd@MZTDmc6<1
+R3
+R21
+R22
+R23
+L0 29
+R7
+r1
+!s85 0
+31
+R24
+R25
+R26
+!s101 -O0
+R9
+Z31 n@e@x_3_1_vlg_sample_tst
+vEX_3_1_vlg_vec_tst
+!i10b 1
+!s100 I[]Ec<]BTQBTUmoQc3RUJ3
+IM^I@5jRA<z:5`WfAD<2<U0
+Z32 VTzk0JR^kE=;6]O30E6Kkl1
+R3
+R21
+R22
+R23
+L0 299
+R7
+r1
+!s85 0
+31
+R24
+R25
+R26
+!s101 -O0
+R9
+Z33 n@e@x_3_1_vlg_vec_tst
+vEX_3_vlg_check_tst
+Z34 !s100 <VNa94]Dil3[iaaORN=`a2
+Z35 I4gzNPEzDI29=MVSkNgF;g2
+Z36 V^oXkVR=f8;n8c];Cj^h<m2
+R3
+Z37 w1636529820
+Z38 8EX_3.vwf.vt
+Z39 FEX_3.vwf.vt
+L0 65
+R7
+r1
+31
+Z40 !s108 1636529823.382000
+Z41 !s107 EX_3.vwf.vt|
+Z42 !s90 -work|work|EX_3.vwf.vt|
+R9
+Z43 n@e@x_3_vlg_check_tst
+!i10b 1
+!s85 0
+!s101 -O0
+vEX_3_vlg_sample_tst
+Z44 !s100 T2B>GWPd5n7j1[KfU<QNm0
+Z45 I^E;SV24_NDK4j]1_o8AN43
+Z46 V_W8MzfSo?8UIEMJA2RNm<3
+R3
+R37
+R38
+R39
+L0 29
+R7
+r1
+31
+R40
+R41
+R42
+R9
+Z47 n@e@x_3_vlg_sample_tst
+!i10b 1
+!s85 0
+!s101 -O0
+vEX_3_vlg_vec_tst
+Z48 !s100 gf7T0L8HmUTPOYfG<XQb<2
+Z49 IgYSBT6mnznbc`0jl0d>4<3
+Z50 VCMOS[coWMXNk8T1I;m]aX0
+R3
+R37
+R38
+R39
+Z51 L0 285
+R7
+r1
+31
+R40
+R41
+R42
+R9
+Z52 n@e@x_3_vlg_vec_tst
+!i10b 1
+!s85 0
+!s101 -O0

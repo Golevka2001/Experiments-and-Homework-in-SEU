@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="h_files">
+      <UniqueIdentifier>{395fdd42-7d6c-455c-b31c-e1195b3be51e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cpp_files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="IDL_DataReader.cpp">
+      <Filter>cpp_files</Filter>
+    </ClCompile>
+    <ClCompile Include="IDL_DataWriter.cpp">
+      <Filter>cpp_files</Filter>
+    </ClCompile>
+    <ClCompile Include="IDL_UserDataType.cpp">
+      <Filter>cpp_files</Filter>
+    </ClCompile>
+    <ClCompile Include="server.cpp">
+      <Filter>cpp_files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IDL_DataReader.h">
+      <Filter>h_files</Filter>
+    </ClInclude>
+    <ClInclude Include="IDL_DataWriter.h">
+      <Filter>h_files</Filter>
+    </ClInclude>
+    <ClInclude Include="IDL_TypeSupport.h">
+      <Filter>h_files</Filter>
+    </ClInclude>
+    <ClInclude Include="IDL_UserDataType.h">
+      <Filter>h_files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

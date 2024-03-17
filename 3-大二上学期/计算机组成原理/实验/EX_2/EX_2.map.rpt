@@ -1,0 +1,448 @@
+Analysis & Synthesis report for EX_2
+Wed Oct 20 19:10:05 2021
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: lpm_add_sub0:inst|lpm_add_sub:lpm_add_sub_component
+ 11. Parameter Settings for User Entity Instance: lpm_or0:inst2|lpm_or:lpm_or_component
+ 12. Parameter Settings for User Entity Instance: 4-1MUX:inst11|BUSMUX:inst5
+ 13. Parameter Settings for User Entity Instance: 4-1MUX:inst11|BUSMUX:inst6
+ 14. Parameter Settings for User Entity Instance: 4-1MUX:inst11|BUSMUX:inst4
+ 15. Parameter Settings for User Entity Instance: lpm_and0:inst6|lpm_and:lpm_and_component
+ 16. Parameter Settings for User Entity Instance: lpm_inv0:inst7|lpm_inv:lpm_inv_component
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++-------------------------------+----------------------------------------------+
+; Analysis & Synthesis Status   ; Successful - Wed Oct 20 19:10:05 2021        ;
+; Quartus II Version            ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
+; Revision Name                 ; EX_2                                         ;
+; Top-level Entity Name         ; EX_2                                         ;
+; Family                        ; Stratix II                                   ;
+; Logic utilization             ; N/A                                          ;
+;     Combinational ALUTs       ; 27                                           ;
+;     Dedicated logic registers ; 0                                            ;
+; Total registers               ; 0                                            ;
+; Total pins                    ; 30                                           ;
+; Total virtual pins            ; 0                                            ;
+; Total block memory bits       ; 0                                            ;
+; DSP block 9-bit elements      ; 0                                            ;
+; Total PLLs                    ; 0                                            ;
+; Total DLLs                    ; 0                                            ;
++-------------------------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; EX_2               ; EX_2               ;
+; Family name                                                                ; Stratix II         ; Stratix II         ;
+; Use Generated Physical Constraints File                                    ; Off                ;                    ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 6      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                               ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                               ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------------------------+
+; EX_2.bdf                         ; yes             ; User Block Diagram/Schematic File  ; D:/Quartus/quartus/Project/EX_2/EX_2.bdf                   ;
+; 4-1MUX.bdf                       ; yes             ; User Block Diagram/Schematic File  ; D:/Quartus/quartus/Project/EX_2/4-1MUX.bdf                 ;
+; lpm_add_sub0.tdf                 ; yes             ; Auto-Found Wizard-Generated File   ; D:/Quartus/quartus/Project/EX_2/lpm_add_sub0.tdf           ;
+; lpm_add_sub.inc                  ; yes             ; Auto-Found AHDL File               ; d:/quartus/quartus/libraries/megafunctions/lpm_add_sub.inc ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                       ; d:/quartus/quartus/libraries/megafunctions/lpm_add_sub.tdf ;
+; db/add_sub_pnh.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/Quartus/quartus/Project/EX_2/db/add_sub_pnh.tdf         ;
+; lpm_or0.tdf                      ; yes             ; Auto-Found Wizard-Generated File   ; D:/Quartus/quartus/Project/EX_2/lpm_or0.tdf                ;
+; lpm_or.inc                       ; yes             ; Auto-Found AHDL File               ; d:/quartus/quartus/libraries/megafunctions/lpm_or.inc      ;
+; lpm_or.tdf                       ; yes             ; Megafunction                       ; d:/quartus/quartus/libraries/megafunctions/lpm_or.tdf      ;
+; busmux.tdf                       ; yes             ; Megafunction                       ; d:/quartus/quartus/libraries/megafunctions/busmux.tdf      ;
+; lpm_mux.tdf                      ; yes             ; Megafunction                       ; d:/quartus/quartus/libraries/megafunctions/lpm_mux.tdf     ;
+; db/mux_unc.tdf                   ; yes             ; Auto-Generated Megafunction        ; D:/Quartus/quartus/Project/EX_2/db/mux_unc.tdf             ;
+; lpm_and0.tdf                     ; yes             ; Auto-Found Wizard-Generated File   ; D:/Quartus/quartus/Project/EX_2/lpm_and0.tdf               ;
+; lpm_and.inc                      ; yes             ; Auto-Found AHDL File               ; d:/quartus/quartus/libraries/megafunctions/lpm_and.inc     ;
+; lpm_and.tdf                      ; yes             ; Megafunction                       ; d:/quartus/quartus/libraries/megafunctions/lpm_and.tdf     ;
+; lpm_inv0.tdf                     ; yes             ; Auto-Found Wizard-Generated File   ; D:/Quartus/quartus/Project/EX_2/lpm_inv0.tdf               ;
+; lpm_inv.inc                      ; yes             ; Auto-Found AHDL File               ; d:/quartus/quartus/libraries/megafunctions/lpm_inv.inc     ;
+; lpm_inv.tdf                      ; yes             ; Megafunction                       ; d:/quartus/quartus/libraries/megafunctions/lpm_inv.tdf     ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------------------------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++-----------------------------------------------+--------+
+; Resource                                      ; Usage  ;
++-----------------------------------------------+--------+
+; Estimated ALUTs Used                          ; 27     ;
+; Dedicated logic registers                     ; 0      ;
+;                                               ;        ;
+; Estimated ALUTs Unavailable                   ; 1      ;
+;                                               ;        ;
+; Total combinational functions                 ; 27     ;
+; Combinational ALUT usage by number of inputs  ;        ;
+;     -- 7 input functions                      ; 0      ;
+;     -- 6 input functions                      ; 1      ;
+;     -- 5 input functions                      ; 7      ;
+;     -- 4 input functions                      ; 0      ;
+;     -- <=3 input functions                    ; 19     ;
+;                                               ;        ;
+; Combinational ALUTs by mode                   ;        ;
+;     -- normal mode                            ; 17     ;
+;     -- extended LUT mode                      ; 0      ;
+;     -- arithmetic mode                        ; 10     ;
+;     -- shared arithmetic mode                 ; 0      ;
+;                                               ;        ;
+; Estimated ALUT/register pairs used            ; 28     ;
+;                                               ;        ;
+; Total registers                               ; 0      ;
+;     -- Dedicated logic registers              ; 0      ;
+;     -- I/O registers                          ; 0      ;
+;                                               ;        ;
+; Estimated ALMs:  partially or completely used ; 14     ;
+;                                               ;        ;
+; I/O pins                                      ; 30     ;
+; Maximum fan-out node                          ; SEL[0] ;
+; Maximum fan-out                               ; 19     ;
+; Total fan-out                                 ; 114    ;
+; Average fan-out                               ; 2.00   ;
++-----------------------------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                           ;
++-------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                  ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------+--------------+
+; |EX_2                                     ; 27 (2)            ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 30   ; 0            ; |EX_2                                                                                ; work         ;
+;    |4-1MUX:inst11|                        ; 12 (0)            ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_2|4-1MUX:inst11                                                                  ;              ;
+;       |busmux:inst5|                      ; 12 (0)            ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_2|4-1MUX:inst11|busmux:inst5                                                     ; work         ;
+;          |lpm_mux:$00000|                 ; 12 (0)            ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_2|4-1MUX:inst11|busmux:inst5|lpm_mux:$00000                                      ;              ;
+;             |mux_unc:auto_generated|      ; 12 (12)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_2|4-1MUX:inst11|busmux:inst5|lpm_mux:$00000|mux_unc:auto_generated               ; work         ;
+;    |lpm_add_sub0:inst|                    ; 10 (0)            ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_2|lpm_add_sub0:inst                                                              ;              ;
+;       |lpm_add_sub:lpm_add_sub_component| ; 10 (0)            ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_2|lpm_add_sub0:inst|lpm_add_sub:lpm_add_sub_component                            ; work         ;
+;          |add_sub_pnh:auto_generated|     ; 10 (10)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_2|lpm_add_sub0:inst|lpm_add_sub:lpm_add_sub_component|add_sub_pnh:auto_generated ; work         ;
+;    |lpm_or0:inst2|                        ; 3 (0)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_2|lpm_or0:inst2                                                                  ; work         ;
+;       |lpm_or:lpm_or_component|           ; 3 (3)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_2|lpm_or0:inst2|lpm_or:lpm_or_component                                          ; work         ;
++-------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 ALUTs      ; 16 ALUTs             ; 0 ALUTs                ; No         ; |EX_2|4-1MUX:inst11|busmux:inst5|lpm_mux:$00000|mux_unc:auto_generated|l1_w0_n0_mux_dataout ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_add_sub0:inst|lpm_add_sub:lpm_add_sub_component ;
++------------------------+-------------+-----------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                      ;
++------------------------+-------------+-----------------------------------------------------------+
+; LPM_WIDTH              ; 8           ; Untyped                                                   ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                   ;
+; LPM_DIRECTION          ; DEFAULT     ; Untyped                                                   ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                                   ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                   ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                   ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                   ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                   ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                   ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                   ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                        ;
+; DEVICE_FAMILY          ; Stratix II  ; Untyped                                                   ;
+; USE_WYS                ; OFF         ; Untyped                                                   ;
+; STYLE                  ; FAST        ; Untyped                                                   ;
+; CBXI_PARAMETER         ; add_sub_pnh ; Untyped                                                   ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                              ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                            ;
++------------------------+-------------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_or0:inst2|lpm_or:lpm_or_component ;
++------------------------+------------+----------------------------------------------+
+; Parameter Name         ; Value      ; Type                                         ;
++------------------------+------------+----------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                   ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                 ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                 ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                               ;
+; LPM_WIDTH              ; 1          ; Untyped                                      ;
+; LPM_SIZE               ; 8          ; Untyped                                      ;
+; CARRY_CHAIN_LENGTH     ; 48         ; CARRY_CHAIN_LENGTH                           ;
+; CARRY_CHAIN            ; MANUAL     ; Untyped                                      ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                      ;
+; DEVICE_FAMILY          ; Stratix II ; Untyped                                      ;
++------------------------+------------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: 4-1MUX:inst11|BUSMUX:inst5 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; WIDTH          ; 8     ; Untyped                                        ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: 4-1MUX:inst11|BUSMUX:inst6 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; WIDTH          ; 8     ; Untyped                                        ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: 4-1MUX:inst11|BUSMUX:inst4 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; WIDTH          ; 8     ; Untyped                                        ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_and0:inst6|lpm_and:lpm_and_component ;
++------------------------+------------+-------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                            ;
++------------------------+------------+-------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                    ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                  ;
+; LPM_WIDTH              ; 8          ; Untyped                                         ;
+; LPM_SIZE               ; 2          ; Untyped                                         ;
+; CARRY_CHAIN_LENGTH     ; 48         ; CARRY_CHAIN_LENGTH                              ;
+; CARRY_CHAIN            ; MANUAL     ; Untyped                                         ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                         ;
+; DEVICE_FAMILY          ; Stratix II ; Untyped                                         ;
++------------------------+------------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_inv0:inst7|lpm_inv:lpm_inv_component ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; LPM_WIDTH      ; 8     ; Untyped                                                      ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Wed Oct 20 19:10:02 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off EX_2 -c EX_2
+Info: Found 1 design units, including 1 entities, in source file ex_2.bdf
+    Info: Found entity 1: EX_2
+Info: Found 1 design units, including 1 entities, in source file 4-1mux.bdf
+    Info: Found entity 1: 4-1MUX
+Info: Elaborating entity "EX_2" for the top level hierarchy
+Warning: Using design file lpm_add_sub0.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: lpm_add_sub0
+Info: Elaborating entity "lpm_add_sub0" for hierarchy "lpm_add_sub0:inst"
+Info: Elaborating entity "lpm_add_sub" for hierarchy "lpm_add_sub0:inst|lpm_add_sub:lpm_add_sub_component"
+Info: Elaborated megafunction instantiation "lpm_add_sub0:inst|lpm_add_sub:lpm_add_sub_component"
+Info: Instantiated megafunction "lpm_add_sub0:inst|lpm_add_sub:lpm_add_sub_component" with the following parameter:
+    Info: Parameter "LPM_TYPE" = "LPM_ADD_SUB"
+    Info: Parameter "LPM_HINT" = "ONE_INPUT_IS_CONSTANT=NO,CIN_USED=NO"
+    Info: Parameter "LPM_WIDTH" = "8"
+    Info: Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info: Parameter "LPM_DIRECTION" = "UNUSED"
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_pnh.tdf
+    Info: Found entity 1: add_sub_pnh
+Info: Elaborating entity "add_sub_pnh" for hierarchy "lpm_add_sub0:inst|lpm_add_sub:lpm_add_sub_component|add_sub_pnh:auto_generated"
+Warning: Using design file lpm_or0.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: lpm_or0
+Info: Elaborating entity "lpm_or0" for hierarchy "lpm_or0:inst2"
+Info: Elaborating entity "lpm_or" for hierarchy "lpm_or0:inst2|lpm_or:lpm_or_component"
+Info: Elaborated megafunction instantiation "lpm_or0:inst2|lpm_or:lpm_or_component"
+Info: Instantiated megafunction "lpm_or0:inst2|lpm_or:lpm_or_component" with the following parameter:
+    Info: Parameter "LPM_TYPE" = "LPM_OR"
+    Info: Parameter "LPM_WIDTH" = "1"
+    Info: Parameter "LPM_SIZE" = "8"
+Info: Elaborating entity "4-1MUX" for hierarchy "4-1MUX:inst11"
+Info: Elaborating entity "BUSMUX" for hierarchy "4-1MUX:inst11|BUSMUX:inst5"
+Info: Elaborated megafunction instantiation "4-1MUX:inst11|BUSMUX:inst5"
+Info: Instantiated megafunction "4-1MUX:inst11|BUSMUX:inst5" with the following parameter:
+    Info: Parameter "WIDTH" = "8"
+Info: Elaborating entity "lpm_mux" for hierarchy "4-1MUX:inst11|BUSMUX:inst5|lpm_mux:$00000"
+Info: Elaborated megafunction instantiation "4-1MUX:inst11|BUSMUX:inst5|lpm_mux:$00000", which is child of megafunction instantiation "4-1MUX:inst11|BUSMUX:inst5"
+Info: Found 1 design units, including 1 entities, in source file db/mux_unc.tdf
+    Info: Found entity 1: mux_unc
+Info: Elaborating entity "mux_unc" for hierarchy "4-1MUX:inst11|BUSMUX:inst5|lpm_mux:$00000|mux_unc:auto_generated"
+Warning: Using design file lpm_and0.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: lpm_and0
+Info: Elaborating entity "lpm_and0" for hierarchy "lpm_and0:inst6"
+Info: Elaborating entity "lpm_and" for hierarchy "lpm_and0:inst6|lpm_and:lpm_and_component"
+Info: Elaborated megafunction instantiation "lpm_and0:inst6|lpm_and:lpm_and_component"
+Info: Instantiated megafunction "lpm_and0:inst6|lpm_and:lpm_and_component" with the following parameter:
+    Info: Parameter "LPM_TYPE" = "LPM_AND"
+    Info: Parameter "LPM_WIDTH" = "8"
+    Info: Parameter "LPM_SIZE" = "2"
+Warning: Using design file lpm_inv0.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: lpm_inv0
+Info: Elaborating entity "lpm_inv0" for hierarchy "lpm_inv0:inst7"
+Info: Elaborating entity "lpm_inv" for hierarchy "lpm_inv0:inst7|lpm_inv:lpm_inv_component"
+Info: Elaborated megafunction instantiation "lpm_inv0:inst7|lpm_inv:lpm_inv_component"
+Info: Instantiated megafunction "lpm_inv0:inst7|lpm_inv:lpm_inv_component" with the following parameter:
+    Info: Parameter "LPM_TYPE" = "LPM_INV"
+    Info: Parameter "LPM_WIDTH" = "8"
+Info: Implemented 57 device resources after synthesis - the final resource count might be different
+    Info: Implemented 18 input pins
+    Info: Implemented 12 output pins
+    Info: Implemented 27 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 225 megabytes
+    Info: Processing ended: Wed Oct 20 19:10:05 2021
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+

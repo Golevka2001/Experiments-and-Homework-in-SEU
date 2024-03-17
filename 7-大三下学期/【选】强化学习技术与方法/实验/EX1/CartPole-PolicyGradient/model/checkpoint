@@ -1,0 +1,2 @@
+model_checkpoint_path: "cur_best_cartpole"
+all_model_checkpoint_paths: "cur_best_cartpole"

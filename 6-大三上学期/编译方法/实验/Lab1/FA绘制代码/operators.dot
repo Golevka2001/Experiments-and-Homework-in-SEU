@@ -1,0 +1,58 @@
+digraph operators {
+    rankdir = LR;
+    node [shape = circle; style = rounded;];
+    
+    s [style = invis;];
+    1 [shape = doublecircle;];
+    2 [shape = doublecircle;];
+    3 [shape = doublecircle;];
+    4 [shape = doublecircle;];
+    5 [shape = doublecircle;];
+    6 [shape = doublecircle;];
+    7 [shape = doublecircle;];
+    8 [shape = doublecircle;];
+    9 [shape = doublecircle;];
+    10 [shape = doublecircle;];
+    11 [shape = doublecircle;];
+    12 [shape = doublecircle;];
+    13 [shape = doublecircle;];
+    14;
+    15 [shape = doublecircle;];
+    16;
+    17 [shape = doublecircle;];
+    18 [shape = doublecircle;];
+    19 [shape = doublecircle;];
+    20 [shape = doublecircle;];
+    21 [shape = doublecircle;];
+    22 [shape = doublecircle;];
+    23 [shape = doublecircle;];
+    24 [shape = doublecircle;];
+    25 [shape = doublecircle;];
+    
+    s -> 0;
+    0 -> 1 [label = "+";];
+    0 -> 2 [label = "-";];
+    0 -> 3 [label = "*";];
+    0 -> 4 [label = "/";];
+    0 -> 5 [label = "%";];
+    0 -> 6 [label = "=";];
+    6 -> 7 [label = "=";];
+    0 -> 8 [label = "<";];
+    8 -> 9 [label = "=";];
+    0 -> 10 [label = ">";];
+    10 -> 11 [label = "=";];
+    0 -> 12 [label = "!";];
+    12 -> 13 [label = "=";];
+    0 -> 14 [label = "&";];
+    14 -> 15 [label = "&";];
+    0 -> 16 [label = "|";];
+    16 -> 17 [label = "|";];
+    0 -> 18 [label = ",";];
+    0 -> 19 [label = ";";];
+    0 -> 20 [label = "(";];
+    0 -> 21 [label = ")";];
+    0 -> 22 [label = "[";];
+    0 -> 23 [label = "]";];
+    0 -> 24 [label = "{";];
+    0 -> 25 [label = "}";];
+}

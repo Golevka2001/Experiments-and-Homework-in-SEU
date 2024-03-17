@@ -1,0 +1,151 @@
+!
+version 16.3.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SW2
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+ip routing
+!
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+vtp mode transparent
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+vlan 40
+ name PC2
+!
+vlan 50
+ name PC3
+!
+vlan 60
+ name R3
+!
+interface GigabitEthernet1/0/1
+ switchport access vlan 40
+!
+interface GigabitEthernet1/0/2
+ switchport access vlan 50
+!
+interface GigabitEthernet1/0/3
+!
+interface GigabitEthernet1/0/4
+!
+interface GigabitEthernet1/0/5
+!
+interface GigabitEthernet1/0/6
+!
+interface GigabitEthernet1/0/7
+!
+interface GigabitEthernet1/0/8
+!
+interface GigabitEthernet1/0/9
+!
+interface GigabitEthernet1/0/10
+!
+interface GigabitEthernet1/0/11
+!
+interface GigabitEthernet1/0/12
+!
+interface GigabitEthernet1/0/13
+!
+interface GigabitEthernet1/0/14
+!
+interface GigabitEthernet1/0/15
+!
+interface GigabitEthernet1/0/16
+!
+interface GigabitEthernet1/0/17
+!
+interface GigabitEthernet1/0/18
+!
+interface GigabitEthernet1/0/19
+!
+interface GigabitEthernet1/0/20
+!
+interface GigabitEthernet1/0/21
+!
+interface GigabitEthernet1/0/22
+!
+interface GigabitEthernet1/0/23
+!
+interface GigabitEthernet1/0/24
+ switchport access vlan 60
+!
+interface GigabitEthernet1/1/1
+!
+interface GigabitEthernet1/1/2
+!
+interface GigabitEthernet1/1/3
+!
+interface GigabitEthernet1/1/4
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan40
+ mac-address 0002.4a3b.b901
+ ip address 192.168.4.2 255.255.255.0
+!
+interface Vlan50
+ mac-address 0002.4a3b.b902
+ ip address 192.168.5.2 255.255.255.0
+!
+interface Vlan60
+ mac-address 0002.4a3b.b903
+ ip address 192.168.0.6 255.255.255.252
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 192.168.0.5 
+!
+ip flow-export version 9
+!
+!
+!
+no cdp run
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+!
+end
+

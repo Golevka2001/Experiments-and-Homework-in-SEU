@@ -1,0 +1,80 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="425pt" height="80pt" viewBox="0.00 0.00 425.43 79.80">
+<g id="graph0" class="graph" transform="translate(4,75.80000305175781) scale(1)" data-name="characters">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-75.8 421.43,-75.8 421.43,4 -4,4" style=""/>
+<!-- s -->
+<!-- 0 -->
+<g id="node3" class="node" pointer-events="visible" data-name="0">
+
+<ellipse fill="none" stroke="black" cx="91" cy="-45" rx="18" ry="18" style=""/>
+<text text-anchor="middle" x="91" y="-40.8" font-family="Times,serif" font-size="14.00" style="">0</text>
+</g>
+<!-- s&#45;&gt;0 -->
+<g id="edge1" class="edge" data-name="s-&gt;0">
+
+<path fill="none" stroke="black" d="M36.19,-45C43.77,-45 52.9,-45 61.46,-45" style=""/>
+<polygon fill="black" stroke="black" points="61.46,-48.5 71.46,-45 61.46,-41.5 61.46,-48.5" style=""/>
+</g>
+<!-- 4 -->
+<g id="node2" class="node" pointer-events="visible" data-name="4">
+
+<ellipse fill="none" stroke="black" cx="395.43" cy="-45" rx="18" ry="18" style=""/>
+<ellipse fill="none" stroke="black" cx="395.43" cy="-45" rx="22" ry="22" style=""/>
+<text text-anchor="middle" x="395.43" y="-40.8" font-family="Times,serif" font-size="14.00" style="">4</text>
+</g>
+<!-- 1 -->
+<g id="node4" class="node" pointer-events="visible" data-name="1">
+
+<ellipse fill="none" stroke="black" cx="165.52" cy="-45" rx="18" ry="18" style=""/>
+<text text-anchor="middle" x="165.52" y="-40.8" font-family="Times,serif" font-size="14.00" style="">1</text>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge2" class="edge" data-name="0-&gt;1">
+
+<path fill="none" stroke="black" d="M109.19,-45C117.23,-45 127.01,-45 136.11,-45" style=""/>
+<polygon fill="black" stroke="black" points="135.95,-48.5 145.95,-45 135.95,-41.5 135.95,-48.5" style=""/>
+<text text-anchor="middle" x="128.26" y="-49.2" font-family="Times,serif" font-size="14.00" style="">'</text>
+</g>
+<!-- 2 -->
+<g id="node5" class="node" pointer-events="visible" data-name="2">
+
+<ellipse fill="none" stroke="black" cx="316.91" cy="-45" rx="18" ry="18" style=""/>
+<text text-anchor="middle" x="316.91" y="-40.8" font-family="Times,serif" font-size="14.00" style="">2</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge3" class="edge" data-name="1-&gt;2">
+
+<path fill="none" stroke="black" d="M183.13,-49.6C188.9,-50.98 195.45,-52.32 201.52,-53 236.58,-56.96 245.85,-56.96 280.91,-53 283.28,-52.73 285.73,-52.37 288.17,-51.94" style=""/>
+<polygon fill="black" stroke="black" points="288.76,-55.39 297.83,-49.91 287.32,-48.54 288.76,-55.39" style=""/>
+<text text-anchor="middle" x="241.41" y="-59.2" font-family="Times,serif" font-size="14.00" style="">[^\\']</text>
+</g>
+<!-- 3 -->
+<g id="node6" class="node" pointer-events="visible" data-name="3">
+
+<ellipse fill="none" stroke="black" cx="241.41" cy="-18" rx="18" ry="18" style=""/>
+<text text-anchor="middle" x="241.41" y="-13.8" font-family="Times,serif" font-size="14.00" style="">3</text>
+</g>
+<!-- 1&#45;&gt;3 -->
+<g id="edge4" class="edge" data-name="1-&gt;3">
+
+<path fill="none" stroke="black" d="M182.92,-39.01C191.91,-35.72 203.29,-31.57 213.54,-27.82" style=""/>
+<polygon fill="black" stroke="black" points="214.45,-31.21 222.64,-24.49 212.04,-24.64 214.45,-31.21" style=""/>
+<text text-anchor="middle" x="203.47" y="-36.2" font-family="Times,serif" font-size="14.00" style="">\</text>
+</g>
+<!-- 2&#45;&gt;4 -->
+<g id="edge6" class="edge" data-name="2-&gt;4">
+
+<path fill="none" stroke="black" d="M335.28,-45C343.06,-45 352.52,-45 361.56,-45" style=""/>
+<polygon fill="black" stroke="black" points="361.53,-48.5 371.53,-45 361.53,-41.5 361.53,-48.5" style=""/>
+<text text-anchor="middle" x="354.17" y="-49.2" font-family="Times,serif" font-size="14.00" style="">'</text>
+</g>
+<!-- 3&#45;&gt;2 -->
+<g id="edge5" class="edge" data-name="3-&gt;2">
+
+<path fill="none" stroke="black" d="M258.72,-23.99C267.57,-27.24 278.74,-31.35 288.86,-35.06" style=""/>
+<polygon fill="black" stroke="black" points="287.63,-38.34 298.22,-38.5 290.05,-31.77 287.63,-38.34" style=""/>
+<text text-anchor="middle" x="279.16" y="-36.2" font-family="Times,serif" font-size="14.00" style="">.</text>
+</g>
+</g>
+</svg>

@@ -1,0 +1,1 @@
+cmd_/home/golevka/Projects/ch2/Homework2/birthday.ko := ld -r  -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/golevka/Projects/ch2/Homework2/birthday.ko /home/golevka/Projects/ch2/Homework2/birthday.o /home/golevka/Projects/ch2/Homework2/birthday.mod.o;  true

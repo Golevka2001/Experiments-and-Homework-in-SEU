@@ -1,0 +1,172 @@
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SW2
+!
+!
+!
+!
+!
+!
+ip routing
+!
+ipv6 unicast-routing
+!
+!
+!
+!
+username se secret 5 $1$mERr$mo5w8Vf1taR9pYrH5yQoz/
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ no switchport
+ ip address 192.168.255.5 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:250:A160:10::1/64
+ ipv6 enable
+!
+interface FastEthernet0/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode passive
+!
+interface FastEthernet0/3
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode passive
+!
+interface FastEthernet0/4
+ switchport access vlan 30
+!
+interface FastEthernet0/5
+ switchport access vlan 40
+ switchport mode access
+ switchport nonegotiate
+!
+interface FastEthernet0/6
+ switchport access vlan 50
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan30
+ mac-address 0001.64a0.9001
+ ip address 192.168.10.9 255.255.255.248
+ ipv6 address 2001:250:A160:6::2/64
+!
+interface Vlan40
+ mac-address 0001.64a0.9002
+ ip address 192.168.10.65 255.255.255.192
+ ipv6 address 2001:250:A160:7::2/64
+!
+interface Vlan50
+ mac-address 0001.64a0.9003
+ ip address 210.28.91.1 255.255.255.0
+ ip access-group 101 in
+ ip access-group 101 out
+ ipv6 address 2001:250:A160:8::2/64
+ ipv6 enable
+!
+router ospf 1
+ log-adjacency-changes
+ network 192.168.10.8 0.0.0.7 area 1
+ network 192.168.10.64 0.0.0.63 area 1
+ network 192.168.255.4 0.0.0.3 area 1
+ network 210.28.91.0 0.0.0.255 area 1
+!
+ip classless
+ip route 8.8.8.8 255.255.255.255 192.168.255.6 
+!
+ip flow-export version 9
+!
+ipv6 route ::/0 2001:250:A160:10::2
+!
+access-list 1 permit host 192.168.10.10
+access-list 101 deny icmp 192.168.10.32 0.0.0.31 210.28.91.0 0.0.0.255
+access-list 101 deny icmp 192.168.10.16 0.0.0.15 210.28.91.0 0.0.0.255
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ access-class 1 in
+ login local
+ transport input telnet
+!
+!
+!
+!
+end
+

@@ -1,0 +1,327 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     10789,        270]*)
+(*NotebookOutlinePosition[     11443,        293]*)
+(*  CellTagsIndexPosition[     11399,        289]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(p = ParametricPlot3D[{Cos[t], Sin[t], 1}, {t, 0, 2*Pi}]\)], "Input"],
+
+Cell[BoxData[
+    \(Plot3D[
+      1 + \@\(1 - x^2 - y^2\), {x, \(-1\), 1}, {y, \(-1\), 1}]\)], "Input"],
+
+Cell[BoxData[{
+    \(f[x_, y_] := 
+      If[x^2 + y^2 \[LessEqual] 1, 1 + \@\(1 - x^2 - y^2\), 
+        1]\), "\[IndentingNewLine]", 
+    \(Plot3D[f[x, y], {x, \(-1\), 1}, {y, \(-1\), 1}]\)}], "Input"],
+
+Cell[BoxData[
+    \(Plot3D[f[x, y], {x, \(-1\), 1}, {y, \(-1\), 1}, 
+      PlotPoints \[Rule] 30]\)], "Input"],
+
+Cell[BoxData[
+    \(ParametricPlot3D[{Cos[u]*Sin[v], Sin[u]*Sin[v], 1 + Cos[v]}, {u, 0, 
+        2*Pi}, {v, 0, Pi\/2}, PlotPoints \[Rule] 30]\)], "Input"],
+
+Cell[BoxData[
+    \(ParametricPlot3D[{Cos[u]*Sin[v], Sin[u]*Sin[v], 1 + Cos[v]}, {u, 0, 
+        3*Pi/2}, {v, 0, Pi\/2}, PlotPoints \[Rule] 30]\)], "Input"],
+
+Cell[BoxData[{
+    \(\(t1 = 
+        ParametricPlot3D[{r*Cos[t], r*Sin[t], r^2}, {t, 0, 2*Pi}, {r, 0, 1}, 
+          PlotPoints \[Rule] 30];\)\), "\[IndentingNewLine]", 
+    \(\(t2 = 
+        ParametricPlot3D[{Cos[u]*Sin[v], Sin[u]*Sin[v], 1 + Cos[v]}, {u, 0, 
+            2*Pi}, {v, 0, Pi\/2}, 
+          PlotPoints \[Rule] 30];\)\), "\[IndentingNewLine]", 
+    \(Show[t1, t2]\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(s1 = 
+        ParametricPlot3D[{u, v, u^2 + v^2}, {u, \(-1\), 1}, {v, \(-1\), 
+            2}, \[IndentingNewLine]PlotRange \[Rule] {0, 2}, 
+          AxesLabel \[Rule] {"\<x\>", "\<y\>", "\<z\>"}, \
+\[IndentingNewLine]DisplayFunction \[Rule] 
+            Identity];\)\), "\[IndentingNewLine]", 
+    \(\(s2 = 
+        ParametricPlot3D[{u^2, u, v}, {u, \(-1\), 1}, {v, 0, 
+            2}, \[IndentingNewLine]AxesLabel \[Rule] {"\<x\>", "\<y\>", \
+"\<z\>"}, DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(\(s3 = 
+        ParametricPlot3D[{1, u, v}, {u, \(-1\), 1}, {v, 0, 
+            2}, \[IndentingNewLine]AxesLabel \[Rule] {"\<x\>", "\<y\>", \
+"\<z\>"}, DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(\(s4 = 
+        ParametricPlot3D[{u, v, 0}, {u, \(-1\), 1}, {v, \(-1\), 
+            1}, \[IndentingNewLine]AxesLabel \[Rule] {"\<x\>", "\<y\>", \
+"\<z\>"}, DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(Show[s1, s2, s3, s4, 
+      DisplayFunction \[Rule] $DisplayFunction]\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(m = 20;\)\), "\[IndentingNewLine]", 
+    \(For[i = 1, i \[LessEqual] m, \(i++\), 
+      ParametricPlot3D[{Sin[z]*Cos[u], Sin[z]*Sin[u], 
+          z}, \[IndentingNewLine]{z, 0, Pi}, {u, 0, 2\ Pi*i/m}, 
+        AspectRatio \[Rule] 1, 
+        AxesLabel \[Rule] {"\<x\>", "\<y\>", "\<z\>"}, \
+\[IndentingNewLine]PlotPoints \[Rule] 30]]\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(s[n_] := 
+        Sum[\((\(-1\))\)^\((k - 1)\)\/\(2\ k - 1\), {k, 1, 
+            n}];\)\), "\[IndentingNewLine]", 
+    \(\(data = Table[s[n], {n, 1, 400}];\)\), "\[IndentingNewLine]", 
+    \(ListPlot[data]\)}], "Input"],
+
+Cell[BoxData[{
+    \(sn = 0; n = 1; h = {}; m = 3;\), "\[IndentingNewLine]", 
+    \(\(While[1\/n > 10^\((\(-m\))\), 
+        sn = sn + \((\(-1\))\)^\((n - 1)\)\/\(2\ n - 1\); \
+\[IndentingNewLine]h = \[IndentingNewLine]Append[h, 
+            Graphics[{RGBColor[Abs[Sin[n]], 0, 1/n], 
+                Line[{{sn, 0}, {sn, 
+                      1}}]}]]; \(n++\)];\)\), "\[IndentingNewLine]", 
+    \(Show[h, PlotRange \[Rule] {\(-0.2\), 1.3}, 
+      Axes \[Rule] True]\)}], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      StyleBox[\(\[Sum]\+\(n = 1\)\%\[Infinity]\),
+        ScriptLevel->0], 
+      StyleBox[" ",
+        ScriptLevel->
+          0], \(\((\(-1\))\)^\((n - 1)\)\/\(2\ n - 1\)\)}]], "Input"],
+
+Cell[BoxData[{
+    RowBox[{
+      RowBox[{
+        StyleBox[\(\[Sum]\+\(n = 1\)\%\[Infinity]\),
+          ScriptLevel->0], 
+        StyleBox[" ",
+          ScriptLevel->0], \(\((\(-1\))\)^\((n - 1)\)\/\(2\ n - 1\)\)}], "//",
+       "N"}], "\[IndentingNewLine]", \(NSum[\((\(-1\))\)^\((n - 1)\)\/\(2\ n \
+- 1\), {n, Infinity}]\)}], "Input"],
+
+Cell[BoxData[{
+    \(N[Sum[\((\(-1\))\)^\((n - 1)\)\/\(2\ n - 1\), {n, Infinity}], 
+      30]\), "\[IndentingNewLine]", 
+    \(N[NSum[\((\(-1\))\)^\((n - 1)\)\/\(2\ n - 1\), {n, Infinity}], 
+      30]\)}], "Input"],
+
+Cell[BoxData[{
+    \(m = \(-1\); f[x_] := \((1 + x)\)^m; x0 = 0;\), "\[IndentingNewLine]", 
+    \(\(g[n_, x0_] := 
+        D[f[x], {x, n}] /. x \[Rule] x0;\)\), "\[IndentingNewLine]", 
+    \(\(s[n_, x_] := 
+        Sum[g[k, x0]\/\(k!\)*\((x - x0)\)^k, {k, 0, 
+            n}];\)\), "\[IndentingNewLine]", 
+    \(\(t = Table[s[n, x], {n, 20}];\)\), "\[IndentingNewLine]", 
+    \(\(p1 = 
+        Plot[Evaluate[t], {x, \(-1\)/2, 1/2}];\)\), "\[IndentingNewLine]", 
+    \(\(p2 = 
+        Plot[\((1 + x)\)^m, {x, \(-1\)/2, 1/2}, 
+          PlotStyle \[Rule] RGBColor[0, 0, 1]];\)\), "\[IndentingNewLine]", 
+    \(Show[p1, p2]\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(f[x_] := 
+        Which[\(-2\)\ Pi \[LessEqual] x < \(-Pi\), 
+          1, \(-Pi\) \[LessEqual] x < 0, \(-1\), 0 \[LessEqual] x < Pi, 1, 
+          Pi \[LessEqual] x < 2\ Pi, \(-1\)];\)\), "\[IndentingNewLine]", 
+    \(\(a[n_] := 
+        Integrate[\(-Cos[n\ x]\), {x, \(-Pi\), 
+              0}] + \[IndentingNewLine]Integrate[Cos[n\ x], {x, 0, Pi}]/
+            Pi;\)\), "\[IndentingNewLine]", 
+    \(\(b[n_] := 
+        Integrate[\(-Sin[n\ x]\), {x, \(-Pi\), 
+              0}] + \[IndentingNewLine]Integrate[Sin[n\ x], {x, 0, Pi}]/
+            Pi;\)\), "\[IndentingNewLine]", 
+    \(\(s[x_, n_] := 
+        a[0]\/2 + 
+          Sum[a[k]*Cos[k\ x] + b[k]*Sin[k\ x], {k, 1, 
+              n}];\)\), "\[IndentingNewLine]", 
+    \(\(g1 = 
+        Plot[f[x], {x, \(-2\)\ Pi, 2\ Pi}, 
+          PlotStyle \[Rule] 
+            RGBColor[0, 0, 1], \[IndentingNewLine]DisplayFunction \[Rule] 
+            Identity];\)\), "\[IndentingNewLine]", 
+    \(\(m = 18;\)\), "\[IndentingNewLine]", 
+    \(For[i = 1, i \[LessEqual] m, 
+      i += 2, \[IndentingNewLine]g2 = 
+        Plot[Evaluate[s[x, i]], {x, \(-2\)\ Pi, 2\ Pi}, 
+          DisplayFunction \[Rule] Identity]; \[IndentingNewLine]Show[g1, g2, 
+        DisplayFunction \[Rule] $DisplayFunction]]\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(fourier[f_, T_, k_] := 
+        Module[{a, b, i, t, s, g1, g2}, \[IndentingNewLine]a[0] = 
+            Integrate[f, {x, \(-T\), T}]/T; 
+          s = a[0]/2; \[IndentingNewLine]For[i = 1, 
+            i \[LessEqual] k, \(i++\), 
+            t = i*Pi/T; \[IndentingNewLine]a[i_] := 
+              Integrate[f*Cos[t*x], {x, \(-T\), T}]/T; \[IndentingNewLine]b[
+                i_] := Integrate[f*Sin[t*x], {x, \(-T\), T}]/
+                T; \[IndentingNewLine]s = s + a[i] Cos[t*x] + b[i] Sin[t*x]]; 
+          Print[s]; \[IndentingNewLine]Plot[Evaluate[s], {x, \(-T\), T}, 
+            DisplayFunction \[Rule] 
+              Identity]];\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(f = x^4 + 1; T = 3; n = 8; 
+    g = Plot[f, {x, \(-T\), T}, 
+        PlotStyle \[Rule] RGBColor[0, 0, 1]];\), "\[IndentingNewLine]", 
+    \(\(For[j = 1, j \[LessEqual] n, j += 2, 
+        p = fourier[f, T, j]];\)\), "\[IndentingNewLine]", 
+    \(Show[g, p, DisplayFunction \[Rule] $DisplayFunction]\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(x = Table[100 + 10*i, {i, 0, 9}];\)\), "\[IndentingNewLine]", 
+    \(\(y = {45, 51, 54, 61, 66, 70, 74, 78, 85, 
+          89};\)\), "\[IndentingNewLine]", 
+    \(xy = 
+      Table[{x[\([i]\)], y[\([i]\)]}, {i, 1, 10}]\), "\[IndentingNewLine]", 
+    \(ListPlot[xy, PlotStyle \[Rule] PointSize[0.015]]\)}], "Input"],
+
+Cell[BoxData[{
+    \(q[a_, b_] := 
+      Sum[\((a\ x[\([i]\)] + b - y[\([i]\)])\)^2, {i, 1, 
+          10}]\), "\[IndentingNewLine]", 
+    \(Solve[{D[q[a, b], a] \[Equal] 0, D[q[a, b], b] \[Equal] 0}, {a, 
+        b}]\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(t = {11.8, 14.7, 15.4, 16.5, 17.1, 18.1, 19.8, 
+          20.3};\)\), "\[IndentingNewLine]", 
+    \(\(w = {30.4, 15.0, 13.8, 12.7, 10.7, 7.5, 6.8, 
+          5.7};\)\), "\[IndentingNewLine]", 
+    \(\(y = 1/w;\)\), "\[IndentingNewLine]", 
+    \(\(x = t;\)\), "\[IndentingNewLine]", 
+    \(\(xy = 
+        Table[{x[\([i]\)], y[\([i]\)]}, {i, 1, 
+            8}];\)\), "\[IndentingNewLine]", 
+    \(q[a_, b_] := 
+      Sum[\((a\ x[\([i]\)] + b - y[\([i]\)])\)^2, {i, 1, 
+          8}]\), "\[IndentingNewLine]", 
+    \(Solve[{D[q[a, b], a] \[Equal] 0, D[q[a, b], b] \[Equal] 0}, {a, 
+        b}]\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(A = {a, b} /. %7;\)\), "\[IndentingNewLine]", 
+    \(k = 1/A[\([1, 1]\)]\), "\[IndentingNewLine]", 
+    \(c = \(-k\)*A[\([1, 2]\)]\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(data = 
+        Table[{t[\([i]\)], w[\([i]\)]}, {i, 1, 
+            8}];\)\), "\[IndentingNewLine]", 
+    \(\(t1 = 
+        ListPlot[data, PlotStyle \[Rule] PointSize[0.02], 
+          DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(\(f[x_] := k/\((x - c)\);\)\), "\[IndentingNewLine]", 
+    \(\(t2 = 
+        Plot[f[x], {x, 11, 25}, AxesOrigin \[Rule] {11, 0}, 
+          DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(Show[t1, t2, DisplayFunction \[Rule] $DisplayFunction]\)}], "Input"]
+},
+FrontEndVersion->"4.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1024}, {0, 685}},
+WindowSize->{1016, 651},
+WindowMargins->{{0, Automatic}, {Automatic, 0}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 88, 1, 30, "Input"],
+Cell[1808, 52, 103, 2, 33, "Input"],
+Cell[1914, 56, 201, 4, 53, "Input"],
+Cell[2118, 62, 110, 2, 30, "Input"],
+Cell[2231, 66, 154, 2, 42, "Input"],
+Cell[2388, 70, 156, 2, 42, "Input"],
+Cell[2547, 74, 391, 8, 84, "Input"],
+Cell[2941, 84, 1081, 20, 210, "Input"],
+Cell[4025, 106, 370, 7, 90, "Input"],
+Cell[4398, 115, 243, 5, 83, "Input"],
+Cell[4644, 122, 479, 9, 125, "Input"],
+Cell[5126, 133, 215, 6, 49, "Input"],
+Cell[5344, 141, 339, 8, 84, "Input"],
+Cell[5686, 151, 214, 4, 76, "Input"],
+Cell[5903, 157, 634, 13, 164, "Input"],
+Cell[6540, 172, 1281, 27, 264, "Input"],
+Cell[7824, 201, 1026, 18, 230, "Input"],
+Cell[8853, 221, 337, 6, 90, "Input"],
+Cell[9193, 229, 231, 5, 50, "Input"],
+Cell[9427, 236, 629, 14, 150, "Input"],
+Cell[10059, 252, 167, 3, 70, "Input"],
+Cell[10229, 257, 556, 11, 110, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

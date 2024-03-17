@@ -1,0 +1,535 @@
+Analysis & Synthesis report for EX_3
+Wed Nov 10 18:09:37 2021
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. User-Specified and Inferred Latches
+ 11. General Register Statistics
+ 12. Source assignments for EX_3:inst|LPM_RAM_DQ:RAM|altram:sram|altsyncram:ram_block|altsyncram_fr71:auto_generated
+ 13. Source assignments for EX_3:inst|LPM_ROM:ROM|altrom:srom|altsyncram:rom_block|altsyncram_3101:auto_generated
+ 14. Parameter Settings for User Entity Instance: LPM_LATCH:addressLatch
+ 15. Parameter Settings for User Entity Instance: LPM_BUSTRI:outputTri
+ 16. Parameter Settings for User Entity Instance: LPM_BUSTRI:resultTri
+ 17. Parameter Settings for User Entity Instance: EX_3:inst|lpm_mux0:inst4|LPM_MUX:LPM_MUX_component
+ 18. Parameter Settings for User Entity Instance: EX_3:inst|LPM_RAM_DQ:RAM
+ 19. Parameter Settings for User Entity Instance: EX_3:inst|LPM_ROM:ROM
+ 20. Parameter Settings for User Entity Instance: LPM_BUSTRI:inputTri
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Nov 10 18:09:37 2021       ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
+; Revision Name                      ; EX_3                                        ;
+; Top-level Entity Name              ; EX_3_1                                      ;
+; Family                             ; Cyclone IV GX                               ;
+; Total logic elements               ; 37                                          ;
+;     Total combinational functions  ; 37                                          ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 38                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 1,024                                       ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total GXB Receiver Channel PCS     ; 0                                           ;
+; Total GXB Receiver Channel PMA     ; 0                                           ;
+; Total GXB Transmitter Channel PCS  ; 0                                           ;
+; Total GXB Transmitter Channel PMA  ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; EX_3_1             ; EX_3               ;
+; Family name                                                                ; Cyclone IV GX      ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                     ; Library ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------+---------+
+; EX_3.bdf                         ; yes             ; User Block Diagram/Schematic File      ; D:/Quartus/Project/EX_3/EX_3.bdf                                 ;         ;
+; lpm_mux0.vhd                     ; yes             ; User Wizard-Generated File             ; D:/Quartus/Project/EX_3/lpm_mux0.vhd                             ;         ;
+; EX_3_1.bdf                       ; yes             ; User Block Diagram/Schematic File      ; D:/Quartus/Project/EX_3/EX_3_1.bdf                               ;         ;
+; lpm_latch.tdf                    ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/lpm_latch.tdf         ;         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/lpm_constant.inc      ;         ;
+; lpm_bustri.tdf                   ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/lpm_bustri.tdf        ;         ;
+; lpm_mux.tdf                      ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/lpm_mux.tdf           ;         ;
+; aglobal131.inc                   ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/aglobal131.inc        ;         ;
+; muxlut.inc                       ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/muxlut.inc            ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/bypassff.inc          ;         ;
+; altshift.inc                     ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altshift.inc          ;         ;
+; db/mux_jbe.tdf                   ; yes             ; Auto-Generated Megafunction            ; D:/Quartus/Project/EX_3/db/mux_jbe.tdf                           ;         ;
+; lpm_ram_dq.tdf                   ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/lpm_ram_dq.tdf        ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altram.inc            ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; altram.tdf                       ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altram.tdf            ;         ;
+; memmodes.inc                     ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/others/maxplus2/memmodes.inc        ;         ;
+; altsyncram.inc                   ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altsyncram.inc        ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_fr71.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/Quartus/Project/EX_3/db/altsyncram_fr71.tdf                   ;         ;
+; lpm_rom.tdf                      ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/lpm_rom.tdf           ;         ;
+; altrom.tdf                       ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altrom.tdf            ;         ;
+; db/altsyncram_3101.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/Quartus/Project/EX_3/db/altsyncram_3101.tdf                   ;         ;
+; rom.mif                          ; yes             ; Auto-Found Memory Initialization File  ; D:/Quartus/Project/EX_3/rom.mif                                  ;         ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------+---------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++--------------------------+------------------+
+; Resource                 ; Usage            ;
++--------------------------+------------------+
+; I/O pins                 ; 38               ;
+; Total memory bits        ; 1024             ;
+; DSP block 9-bit elements ; 0                ;
+; Maximum fan-out node     ; G_MEM~input      ;
+; Maximum fan-out          ; 19               ;
+; Total fan-out            ; 333              ;
+; Average fan-out          ; 2.58             ;
++--------------------------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                       ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                              ; Library Name ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+--------------+
+; |EX_3_1                                         ; 37 (0)            ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0         ; 38   ; 0            ; |EX_3_1                                                                                          ; work         ;
+;    |EX_3:inst|                                  ; 2 (2)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_3_1|EX_3:inst                                                                                ; work         ;
+;       |lpm_ram_dq:RAM|                          ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_3_1|EX_3:inst|lpm_ram_dq:RAM                                                                 ; work         ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_3_1|EX_3:inst|lpm_ram_dq:RAM|altram:sram                                                     ; work         ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_3_1|EX_3:inst|lpm_ram_dq:RAM|altram:sram|altsyncram:ram_block                                ; work         ;
+;                |altsyncram_fr71:auto_generated| ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_3_1|EX_3:inst|lpm_ram_dq:RAM|altram:sram|altsyncram:ram_block|altsyncram_fr71:auto_generated ; work         ;
+;       |lpm_rom:ROM|                             ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_3_1|EX_3:inst|lpm_rom:ROM                                                                    ; work         ;
+;          |altrom:srom|                          ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_3_1|EX_3:inst|lpm_rom:ROM|altrom:srom                                                        ; work         ;
+;             |altsyncram:rom_block|              ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_3_1|EX_3:inst|lpm_rom:ROM|altrom:srom|altsyncram:rom_block                                   ; work         ;
+;                |altsyncram_3101:auto_generated| ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_3_1|EX_3:inst|lpm_rom:ROM|altrom:srom|altsyncram:rom_block|altsyncram_3101:auto_generated    ; work         ;
+;    |lpm_bustri:resultTri|                       ; 27 (27)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_3_1|lpm_bustri:resultTri                                                                     ; work         ;
+;    |lpm_latch:addressLatch|                     ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |EX_3_1|lpm_latch:addressLatch                                                                   ; work         ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                      ;
++-----------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+---------+
+; Name                                                                                                ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF     ;
++-----------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+---------+
+; EX_3:inst|lpm_ram_dq:RAM|altram:sram|altsyncram:ram_block|altsyncram_fr71:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 64           ; 8            ; --           ; --           ; 512  ; None    ;
+; EX_3:inst|lpm_rom:ROM|altrom:srom|altsyncram:rom_block|altsyncram_3101:auto_generated|ALTSYNCRAM    ; AUTO ; ROM         ; 64           ; 8            ; --           ; --           ; 512  ; rom.mif ;
++-----------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                   ;
++--------+--------------+---------+--------------+--------------+----------------------------------+--------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                  ; IP Include File                      ;
++--------+--------------+---------+--------------+--------------+----------------------------------+--------------------------------------+
+; Altera ; LPM_MUX      ; 13.1    ; N/A          ; N/A          ; |EX_3_1|EX_3:inst|lpm_mux0:inst4 ; D:/Quartus/Project/EX_3/lpm_mux0.vhd ;
++--------+--------------+---------+--------------+--------------+----------------------------------+--------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; lpm_latch:addressLatch|latches[7]                  ; wen_LA              ; yes                    ;
+; lpm_latch:addressLatch|latches[6]                  ; wen_LA              ; yes                    ;
+; lpm_latch:addressLatch|latches[5]                  ; wen_LA              ; yes                    ;
+; lpm_latch:addressLatch|latches[4]                  ; wen_LA              ; yes                    ;
+; lpm_latch:addressLatch|latches[3]                  ; wen_LA              ; yes                    ;
+; lpm_latch:addressLatch|latches[2]                  ; wen_LA              ; yes                    ;
+; lpm_latch:addressLatch|latches[1]                  ; wen_LA              ; yes                    ;
+; lpm_latch:addressLatch|latches[0]                  ; wen_LA              ; yes                    ;
+; Number of user-specified and inferred latches = 8  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Source assignments for EX_3:inst|LPM_RAM_DQ:RAM|altram:sram|altsyncram:ram_block|altsyncram_fr71:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                 ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Source assignments for EX_3:inst|LPM_ROM:ROM|altrom:srom|altsyncram:rom_block|altsyncram_3101:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                             ;
++---------------------------------+--------------------+------+------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                              ;
++---------------------------------+--------------------+------+------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM_LATCH:addressLatch ;
++----------------+--------+-------------------------------------------+
+; Parameter Name ; Value  ; Type                                      ;
++----------------+--------+-------------------------------------------+
+; LPM_WIDTH      ; 8      ; Untyped                                   ;
+; LPM_AVALUE     ; UNUSED ; Untyped                                   ;
++----------------+--------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM_BUSTRI:outputTri ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; LPM_WIDTH      ; 8     ; Untyped                                  ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM_BUSTRI:resultTri ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; LPM_WIDTH      ; 8     ; Untyped                                  ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: EX_3:inst|lpm_mux0:inst4|LPM_MUX:LPM_MUX_component ;
++------------------------+---------------+--------------------------------------------------------+
+; Parameter Name         ; Value         ; Type                                                   ;
++------------------------+---------------+--------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON            ; AUTO_CARRY                                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF           ; IGNORE_CARRY                                           ;
+; AUTO_CASCADE_CHAINS    ; ON            ; AUTO_CASCADE                                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF           ; IGNORE_CASCADE                                         ;
+; LPM_WIDTH              ; 8             ; Signed Integer                                         ;
+; LPM_SIZE               ; 2             ; Signed Integer                                         ;
+; LPM_WIDTHS             ; 1             ; Signed Integer                                         ;
+; LPM_PIPELINE           ; 0             ; Signed Integer                                         ;
+; CBXI_PARAMETER         ; mux_jbe       ; Untyped                                                ;
+; DEVICE_FAMILY          ; Cyclone IV GX ; Untyped                                                ;
++------------------------+---------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: EX_3:inst|LPM_RAM_DQ:RAM ;
++------------------------+---------------+------------------------------+
+; Parameter Name         ; Value         ; Type                         ;
++------------------------+---------------+------------------------------+
+; LPM_WIDTH              ; 8             ; Untyped                      ;
+; LPM_WIDTHAD            ; 6             ; Untyped                      ;
+; LPM_NUMWORDS           ; 64            ; Untyped                      ;
+; LPM_INDATA             ; REGISTERED    ; Untyped                      ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED    ; Untyped                      ;
+; LPM_OUTDATA            ; UNREGISTERED  ; Untyped                      ;
+; LPM_FILE               ; UNUSED        ; Untyped                      ;
+; USE_EAB                ; ON            ; Untyped                      ;
+; DEVICE_FAMILY          ; Cyclone IV GX ; Untyped                      ;
+; CBXI_PARAMETER         ; NOTHING       ; Untyped                      ;
+; AUTO_CARRY_CHAINS      ; ON            ; AUTO_CARRY                   ;
+; IGNORE_CARRY_BUFFERS   ; OFF           ; IGNORE_CARRY                 ;
+; AUTO_CASCADE_CHAINS    ; ON            ; AUTO_CASCADE                 ;
+; IGNORE_CASCADE_BUFFERS ; OFF           ; IGNORE_CASCADE               ;
++------------------------+---------------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: EX_3:inst|LPM_ROM:ROM ;
++------------------------+---------------+---------------------------+
+; Parameter Name         ; Value         ; Type                      ;
++------------------------+---------------+---------------------------+
+; LPM_WIDTH              ; 8             ; Untyped                   ;
+; LPM_WIDTHAD            ; 6             ; Untyped                   ;
+; LPM_NUMWORDS           ; 64            ; Untyped                   ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED    ; Untyped                   ;
+; LPM_OUTDATA            ; UNREGISTERED  ; Untyped                   ;
+; LPM_FILE               ; rom.mif       ; Untyped                   ;
+; DEVICE_FAMILY          ; Cyclone IV GX ; Untyped                   ;
+; AUTO_CARRY_CHAINS      ; ON            ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS   ; OFF           ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS    ; ON            ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS ; OFF           ; IGNORE_CASCADE            ;
++------------------------+---------------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM_BUSTRI:inputTri ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; LPM_WIDTH      ; 8     ; Untyped                                 ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
+    Info: Processing started: Wed Nov 10 18:09:33 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off EX_3 -c EX_3
+Info (11104): Parallel Compilation has detected 12 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 6 of the 6 physical processors detected instead.
+Info (12021): Found 1 design units, including 1 entities, in source file ex_3.bdf
+    Info (12023): Found entity 1: EX_3
+Info (12021): Found 2 design units, including 1 entities, in source file lpm_mux0.vhd
+    Info (12022): Found design unit 1: lpm_mux0-SYN
+    Info (12023): Found entity 1: lpm_mux0
+Info (12021): Found 1 design units, including 1 entities, in source file ex_3_1.bdf
+    Info (12023): Found entity 1: EX_3_1
+Info (12127): Elaborating entity "EX_3_1" for the top level hierarchy
+Info (12128): Elaborating entity "LPM_LATCH" for hierarchy "LPM_LATCH:addressLatch"
+Info (12130): Elaborated megafunction instantiation "LPM_LATCH:addressLatch"
+Info (12133): Instantiated megafunction "LPM_LATCH:addressLatch" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "8"
+Info (12128): Elaborating entity "LPM_BUSTRI" for hierarchy "LPM_BUSTRI:outputTri"
+Info (12130): Elaborated megafunction instantiation "LPM_BUSTRI:outputTri"
+Info (12133): Instantiated megafunction "LPM_BUSTRI:outputTri" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "8"
+Info (12128): Elaborating entity "EX_3" for hierarchy "EX_3:inst"
+Warning (275006): Can't find a definition for parameter LPM_FILE -- assuming rom.mif was intended to be a quoted string
+Info (12128): Elaborating entity "lpm_mux0" for hierarchy "EX_3:inst|lpm_mux0:inst4"
+Info (12128): Elaborating entity "LPM_MUX" for hierarchy "EX_3:inst|lpm_mux0:inst4|LPM_MUX:LPM_MUX_component"
+Info (12130): Elaborated megafunction instantiation "EX_3:inst|lpm_mux0:inst4|LPM_MUX:LPM_MUX_component"
+Info (12133): Instantiated megafunction "EX_3:inst|lpm_mux0:inst4|LPM_MUX:LPM_MUX_component" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "8"
+    Info (12134): Parameter "LPM_SIZE" = "2"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_PIPELINE" = "0"
+    Info (12134): Parameter "LPM_TYPE" = "LPM_MUX"
+    Info (12134): Parameter "LPM_HINT" = "UNUSED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_jbe.tdf
+    Info (12023): Found entity 1: mux_jbe
+Info (12128): Elaborating entity "mux_jbe" for hierarchy "EX_3:inst|lpm_mux0:inst4|LPM_MUX:LPM_MUX_component|mux_jbe:auto_generated"
+Info (12128): Elaborating entity "LPM_RAM_DQ" for hierarchy "EX_3:inst|LPM_RAM_DQ:RAM"
+Info (12130): Elaborated megafunction instantiation "EX_3:inst|LPM_RAM_DQ:RAM"
+Info (12133): Instantiated megafunction "EX_3:inst|LPM_RAM_DQ:RAM" with the following parameter:
+    Info (12134): Parameter "LPM_OUTDATA" = "UNREGISTERED"
+    Info (12134): Parameter "LPM_WIDTH" = "8"
+    Info (12134): Parameter "LPM_WIDTHAD" = "6"
+Info (12128): Elaborating entity "altram" for hierarchy "EX_3:inst|LPM_RAM_DQ:RAM|altram:sram"
+Warning (287001): Assertion warning: altram does not support Cyclone IV GX device family -- attempting best-case memory conversions, but power-up states and read during write behavior will be different for Cyclone IV GX devices
+Info (12131): Elaborated megafunction instantiation "EX_3:inst|LPM_RAM_DQ:RAM|altram:sram", which is child of megafunction instantiation "EX_3:inst|LPM_RAM_DQ:RAM"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "EX_3:inst|LPM_RAM_DQ:RAM|altram:sram|altsyncram:ram_block"
+Info (12131): Elaborated megafunction instantiation "EX_3:inst|LPM_RAM_DQ:RAM|altram:sram|altsyncram:ram_block", which is child of megafunction instantiation "EX_3:inst|LPM_RAM_DQ:RAM"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_fr71.tdf
+    Info (12023): Found entity 1: altsyncram_fr71
+Info (12128): Elaborating entity "altsyncram_fr71" for hierarchy "EX_3:inst|LPM_RAM_DQ:RAM|altram:sram|altsyncram:ram_block|altsyncram_fr71:auto_generated"
+Info (12128): Elaborating entity "LPM_ROM" for hierarchy "EX_3:inst|LPM_ROM:ROM"
+Info (12130): Elaborated megafunction instantiation "EX_3:inst|LPM_ROM:ROM"
+Info (12133): Instantiated megafunction "EX_3:inst|LPM_ROM:ROM" with the following parameter:
+    Info (12134): Parameter "LPM_FILE" = "rom.mif"
+    Info (12134): Parameter "LPM_OUTDATA" = "UNREGISTERED"
+    Info (12134): Parameter "LPM_WIDTH" = "8"
+    Info (12134): Parameter "LPM_WIDTHAD" = "6"
+Info (12128): Elaborating entity "altrom" for hierarchy "EX_3:inst|LPM_ROM:ROM|altrom:srom"
+Info (12131): Elaborated megafunction instantiation "EX_3:inst|LPM_ROM:ROM|altrom:srom", which is child of megafunction instantiation "EX_3:inst|LPM_ROM:ROM"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "EX_3:inst|LPM_ROM:ROM|altrom:srom|altsyncram:rom_block"
+Info (12131): Elaborated megafunction instantiation "EX_3:inst|LPM_ROM:ROM|altrom:srom|altsyncram:rom_block", which is child of megafunction instantiation "EX_3:inst|LPM_ROM:ROM"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_3101.tdf
+    Info (12023): Found entity 1: altsyncram_3101
+Info (12128): Elaborating entity "altsyncram_3101" for hierarchy "EX_3:inst|LPM_ROM:ROM|altrom:srom|altsyncram:rom_block|altsyncram_3101:auto_generated"
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "EX_3:inst|lpm_rom:ROM|otri[7]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "EX_3:inst|lpm_rom:ROM|otri[6]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "EX_3:inst|lpm_rom:ROM|otri[5]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "EX_3:inst|lpm_rom:ROM|otri[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "EX_3:inst|lpm_rom:ROM|otri[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "EX_3:inst|lpm_rom:ROM|otri[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "EX_3:inst|lpm_rom:ROM|otri[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "EX_3:inst|lpm_rom:ROM|otri[0]" feeding internal logic into a wire
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "lpm_bustri:resultTri|din[7]" to the node "lpm_latch:addressLatch|latches[7]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "lpm_bustri:resultTri|din[6]" to the node "lpm_latch:addressLatch|latches[6]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "lpm_bustri:resultTri|din[5]" to the node "lpm_latch:addressLatch|latches[5]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "lpm_bustri:resultTri|din[4]" to the node "lpm_latch:addressLatch|latches[4]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "lpm_bustri:resultTri|din[3]" to the node "lpm_latch:addressLatch|latches[3]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "lpm_bustri:resultTri|din[2]" to the node "lpm_latch:addressLatch|latches[2]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "lpm_bustri:resultTri|din[1]" to the node "lpm_latch:addressLatch|latches[1]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "lpm_bustri:resultTri|din[0]" to the node "lpm_latch:addressLatch|latches[0]" into an OR gate
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 91 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
+    Info (21059): Implemented 24 output pins
+    Info (21061): Implemented 37 logic cells
+    Info (21064): Implemented 16 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 4752 megabytes
+    Info: Processing ended: Wed Nov 10 18:09:37 2021
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
+
+

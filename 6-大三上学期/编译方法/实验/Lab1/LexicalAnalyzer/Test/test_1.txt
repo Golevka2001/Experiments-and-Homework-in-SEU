@@ -1,0 +1,13 @@
+int main()
+{
+    char ch[100];
+    int i;
+    for (i=0;i<100;++i)
+    {
+        if (i < 50)
+            ch[i]='a';
+        else
+            ch[i]='b';
+    }
+    return 0;
+}

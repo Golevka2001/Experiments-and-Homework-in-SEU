@@ -1,0 +1,98 @@
+!
+version 15.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+crypto isakmp policy 1
+ encr aes 256
+ authentication pre-share
+ group 2
+!
+crypto isakmp key hq-to-sha address 58.32.166.2
+crypto isakmp key hq-to-nkg address 222.94.88.2
+!
+!
+!
+crypto ipsec transform-set R1 esp-aes 256 esp-sha-hmac
+!
+crypto map R1-map 1 ipsec-isakmp 
+ set peer 58.32.166.2
+ set transform-set R1 
+ match address 100
+!
+crypto map R1-map 2 ipsec-isakmp 
+ set peer 222.94.88.2
+ set transform-set R1 
+ match address 100
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ ip address 58.212.208.2 255.255.255.0
+ duplex auto
+ speed auto
+ crypto map R1-map
+!
+interface GigabitEthernet0/0/1
+ ip address 192.168.0.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 192.168.1.0 255.255.255.0 192.168.0.2 
+ip route 192.168.2.0 255.255.255.0 192.168.0.2 
+ip route 0.0.0.0 0.0.0.0 58.212.208.1 
+!
+ip flow-export version 9
+!
+!
+access-list 100 permit ip any any
+!
+no cdp run
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+

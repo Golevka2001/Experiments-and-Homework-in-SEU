@@ -1,0 +1,796 @@
+#include "SEQ/Sequence.h"
+
+template <typename T>
+sequence<T>::sequence() 
+{
+    _release = 1;
+    _length = 0;
+    _maximum = 0;
+    _buffer = NULL;
+}
+
+template <typename T>
+sequence<T>::sequence(const sequence &IDL_s)
+{
+    _release = 1;
+    _length = 0;
+    _maximum = 0;
+    _buffer = NULL;
+    unsigned long IDL_maximum = IDL_s._maximum;
+    if (set_maximum(IDL_maximum))
+    {
+        copy_no_allocI(IDL_s);
+    }
+}
+
+template <typename T>
+sequence<T>::sequence(unsigned long IDL_max) 
+{
+    _release = 1;
+    _length = 0;
+    _maximum = 0;
+    _buffer = NULL;
+    set_maximum(IDL_max);
+}
+
+template <typename T>
+sequence<T>:: ~sequence()
+{
+    if (_buffer && _release)
+    {
+        set_maximum(0);
+    }
+}
+/*
+输   入：被复制的模板类对象
+输   出：复制产生的模板类对象
+函数功能：重载运算符“ = ”，调用copy实现等号右边的模板类对象对等号左边的模板类对象赋值。
+*/
+template <typename T>
+sequence<T>& sequence<T>::operator= (const sequence &IDL_s) 
+{
+    copy(IDL_s);
+    return *this;
+}
+
+/*
+输   入：_maximum参数新值
+输   出：是否替换新值及替换新缓冲区成功?true:false
+函数功能：根据参数申请相应大小的新缓冲区，将旧缓冲区数据复制到新缓冲区并释放旧缓冲区。
+*/
+template<typename T>
+bool sequence<T>::set_maximum(unsigned long new_max)
+{
+    T* newBuffer = NULL;
+    T* oldBuffer = NULL;
+    unsigned long newLength = 0;
+
+    if (!check_invariantsI()) 
+    {
+        return false;
+    }
+    if (new_max < 0) 
+    {
+        return false;
+    }
+    //当前缓冲区无释放权限
+    if (!_release)
+    {
+        return false;
+    }
+
+    if ((unsigned long)new_max == this->_maximum) 
+    {
+        /* 存储区大小未更改 */
+        return true;
+    }
+
+    if (new_max > 0) 
+    {
+        newBuffer = allocbuf(new_max);
+        if (newBuffer == NULL) 
+        {
+            return false;
+        }
+    }
+
+    //给新缓冲区获取足够的空间
+    newLength = (this->_length < (unsigned long)new_max) ? (unsigned long)this->_length : new_max;
+    if (newLength > 0 && this->_buffer == NULL) 
+    {
+        return false;
+    }
+    
+    //将旧缓冲区数据放入新缓冲区中
+    for (int i = 0; i < newLength; ++i) 
+    {
+        newBuffer[i] = this->_buffer[i];
+    }
+    oldBuffer = this->_buffer;
+    this->_buffer = newBuffer;
+    this->_maximum = new_max;
+    this->_length = newLength;
+
+    if (oldBuffer != NULL)
+    {
+        freebuf(oldBuffer);
+    }
+    if (!check_invariantsI())
+    {
+        return false;
+    }
+
+    return true;
+}
+
+/*
+输   入：无
+输   出：实际使用的缓冲区大小值
+函数功能：获取实际使用的缓冲区大小值。
+*/
+template<typename T>
+unsigned long sequence<T>::length() const
+{
+   return _length;
+}
+
+/*
+输   入：新的已使用缓冲区大小值
+输   出：设置成功 ? true : false
+函数功能：设置新已使用缓冲区大小值（该新值小于maximum值否则返回false）。
+*/
+template <typename T>
+bool sequence<T>::length(unsigned long len) 
+{
+    if (len<0 || len > _maximum)
+    {
+        return false;
+        //return set_maximum(len);
+    }
+    else
+    {
+        _length = len;
+    }
+    return true;
+}
+/*
+输   入：length：设置要使用的缓冲区大小，
+        max：新的缓冲区大小
+输   出：设置成功 ? true : false
+函数功能：根据参数判定，ensure_len > max时返回false, Sequence有足够的空间则仅重置length值，
+        空间不足且当前缓冲区为我们所有则调用maximum函数重置Sequence空间再重置length值，若缓冲区不为我们所有则返回false。
+*/
+template <typename T>
+bool sequence<T>::ensure_length(unsigned long len, unsigned long max)
+{
+    if (len > max||len<0||max<0)
+    {
+        return false;
+    }
+    if (len > _maximum)
+    {
+        if (set_maximum(max))
+        {
+            length(len);
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return length(len);
+    }
+    return true;
+}
+/*
+输   入：被复制的模板类对象
+输   出：是否复制成功 ? true : false
+函数功能：增加缓冲区大小的复制, 要复制的缓冲区长度比当前Sequence的缓冲区大小要小，符合条件则直接进行复制操作，
+        否则调用set_maximum()重新初始化缓冲区大小使得有充足的缓冲区接收要拷贝的数据再进行复制操作。
+*/
+template <typename T>
+bool sequence<T>::copy(const sequence &src_seq)
+{
+    if (this == &src_seq) return true;
+    if (!_release || (src_seq._maximum > _maximum))
+    {
+        if (_buffer && _release)
+        {
+            freebuf(_buffer);
+        }
+        _buffer = allocbuf(src_seq._maximum);
+        _maximum = src_seq._maximum;
+        _release = 1;
+    }
+    _length = src_seq._length;
+    for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++)
+    {
+        _buffer[IDL_j] = src_seq._buffer[IDL_j];
+    }
+    return true;
+}
+
+/*
+输   入：缓冲区下标号
+输   出：缓冲区下标号对应的缓冲区值
+函数功能：判定下标值可获取数据，当非连续缓冲区不为空时返回非连续缓冲区下标对应缓冲区值，否则返回连续缓冲区下标对应缓冲区值。
+*/
+template<typename T>
+const T sequence<T>::get_at(unsigned long i)
+{
+    return *(const T*)get_reference(i);
+}
+
+/*
+输   入：i:	缓冲区下标号，
+        Val:要复制到缓冲区的模板数据
+输   出：缓冲区下标号对应的缓冲区值
+函数功能：判定下标值可获取数据，当缓冲区不为空时将缓冲区对应下标值替换为val参数值并返回，否则返回NULL.
+*/
+template<typename T>
+T & sequence<T>::set_at(unsigned long i, const T & val)
+{
+    *(this->get_reference(i)) = val;
+    return  *get_reference(i);
+}
+
+/*
+输   入：无
+输   出：缓冲区
+函数功能：获取该Sequence的缓冲区。
+*/
+template<typename T>
+T * sequence<T>::get_buffer()
+{
+    return _buffer;
+}
+
+/*
+输   入：array[]：被复制的数据类对象数组
+        Length：数组长度。
+输   出：是否复制成功?true:false
+函数功能：通过中间Sequence对象将array数组中的数据复制到当前Sequence对象中并释放中间Sequence对象。
+*/
+template <typename T>
+bool sequence<T>::from_array(const T array[], unsigned long copy_length) 
+{
+    sequence arraySeq;
+
+    /* 将数组借给堆栈上的本地序列 */
+    if (!arraySeq.loan_buffer((T*)array, copy_length, copy_length)) 
+    {
+        return false;
+    }
+
+    /* 复制到此序列中，必要时调整大小 */
+    if (this->copy(arraySeq) == NULL) 
+    {
+        return false;
+    }
+
+    /* 从堆栈上的本地序列中卸载阵列 */
+    arraySeq.unloan();
+
+    return true;
+}
+
+/*
+输   入：array[]：将当前缓冲区复制数据复制出后存储数组
+        Length：数组长度。
+输   出：是否复制成功?true:false
+函数功能：通过中间Sequence对象将当前Sequence对象的数据复制到array数组中并释放中间Sequence对象。
+*/
+template <typename T>
+bool sequence<T>::to_array(T array[], unsigned long copy_length) 
+{
+    sequence arraySeq;
+
+    /* 将数组借给堆栈上的本地序列 */
+    if (!arraySeq.loan_buffer((T*)array, copy_length, copy_length)) 
+    {
+        return false;
+    }
+
+    /* 复制到此序列中，不调整大小 */
+    if (!arraySeq.copy_no_allocI(*this))
+    {
+        return false;
+    }
+
+    /* 从堆栈上的本地序列中卸载阵列 */
+    arraySeq.unloan();
+
+    return true;
+}
+
+/*
+输   入：要获取模板类对象缓冲区下标。
+输   出：下标对应的数据
+函数功能：判定下标值可获取数据，当缓冲区不为空时返回缓冲区下标对应缓冲区值。
+*/
+template<typename T>
+T * sequence<T>::get_reference(unsigned long i)
+{
+    if (i < 0 || i >= this->_length) 
+    {
+        return NULL;
+    }
+
+    if (this->_buffer != NULL) 
+    {
+        return &(this->_buffer[i]);
+    }
+    return NULL;
+}
+
+/*
+输   入：无
+输   出：检查通过?true:false
+函数功能：检测模板类对象的不变量是否正确。
+*/
+template<typename T>
+int sequence<T>::check_invariantsI()
+{
+    int invariantsHold = DDS_FALSE;
+
+    if (this->_length > this->_maximum) 
+    {
+
+        return invariantsHold;
+    }
+    if (this->_maximum > 0 && this->_buffer == NULL) 
+    {
+
+        return invariantsHold;
+    }
+
+    invariantsHold = DDS_TRUE;
+
+    return invariantsHold;
+}
+
+/*
+输   入：被复制的模板类对象
+输   出：是否复制成功?true:false
+函数功能：不增加缓冲区大小的复制，根据复制对象和被复制对象的缓冲区判定结果进行复制。
+*/
+template<typename T>
+bool sequence<T>::copy_no_allocI(const sequence & src)
+{
+    unsigned long length = src._length;
+    int i = 0;
+    bool ret = true;
+
+    ret = this->length(length);
+    if (!ret) {
+        return ret;
+    }
+
+    for (; i < length; i++)
+    {
+        this->_buffer[i] = src._buffer[i];
+    }
+
+    return ret;
+}
+/*
+输   入：buffer：要借用的缓冲区
+		new_length：要借用的缓冲区实际使用长度。
+		new_max：要借用的缓冲区大小
+输   出：是否借用缓冲区成功?true:false;
+函数功能：判断借用缓冲区的Sequence _maximum值是否为零，为零且其他值
+        正确则将借用的缓冲区赋值给该Sequence。并将_release置为0表示该缓冲区不可操作。
+*/
+template<typename T>
+bool sequence<T>::loan_buffer(T* buffer, unsigned long new_length, unsigned long new_max)
+{
+
+    if (!check_invariantsI()) 
+    {
+        return false;
+    }
+    if (this->_maximum != 0) 
+    {
+        return false;
+    }
+    if (new_length < 0 || new_max < 0) 
+    {
+        return false;
+    }
+    if (new_length > new_max) 
+    {
+        return false;
+    }
+    if (new_max > 0 && buffer == NULL) 
+    {
+        return false;
+    }
+
+    this->_buffer = buffer;
+    this->_length = new_length;
+    this->_maximum = new_max;
+    this->_release = 0;
+
+    if (!check_invariantsI()) 
+    {
+        return false;
+    }
+    return true;
+}
+
+/*
+输    入：无
+输    出：是否为初始化Sequence成功?true:false;
+函数功能：判断该Sequence的缓冲区是否为借用，是则不释放缓冲区并初始化Sequence对象，否则释放缓冲区并初始化Sequence对象。
+*/
+template <typename T>
+bool sequence<T>::unloan()
+{
+    //_buffer不为空且_buffer可以释放
+    if (_buffer&&_release)
+    {
+        freebuf(_buffer);
+    }
+    _buffer = NULL;
+    _maximum = 0;
+    _length = 0;
+    _release = 1;
+    return true;
+}
+
+template <class T>
+void sequence<T>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		_buffer[IDL_j].Marshal(cdr);
+	}
+}
+
+template <class T>
+void sequence<T>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		_buffer[IDL_j].UnMarshal(cdr);
+	}
+}
+
+//wangyi 2021/10/13 short类型特例
+template <>
+inline void sequence<short>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutShort(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<short>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->GetShort(_buffer[IDL_j]);
+	}
+}
+
+//wangyi 2021/10/13  long类型特例
+template <>
+inline void sequence<long>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutLong(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<long>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->GetLong(_buffer[IDL_j]);
+	}
+}
+
+//wangyi 2021/10/13  longlong类型特例
+template <>
+inline void sequence<long long>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutLongLong(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<long long>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->GetLongLong(_buffer[IDL_j]);
+	}
+}
+
+//wangyi 2021/10/13  long double类型特例
+template <>
+inline void sequence<long double>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutLongDouble(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<long double>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->GetLongDouble(_buffer[IDL_j]);
+	}
+}
+
+//wangyi 2021/10/13  string类型特例
+template <>
+inline void sequence<string>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutString(_buffer[IDL_j].c_str());
+	}
+}
+
+template <>
+inline void sequence<string>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		char *IDL_str;
+		cdr->GetString(IDL_str);
+		_buffer[IDL_j] = IDL_str;
+		delete IDL_str;
+		IDL_str = NULL;
+	}
+}
+
+//wangyi 2021/10/13  char类型特例
+template <>
+inline void sequence<char>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutChar(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<char>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->GetChar(_buffer[IDL_j]);
+	}
+}
+
+//wangyi 2021/10/13  wchar类型特例
+
+//wangyi 2021/10/13  boolean类型特例
+template <>
+inline void sequence<bool>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutBoolean(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<bool>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutBoolean(_buffer[IDL_j]);
+	}
+}
+
+//wangyi 2021/10/13  octet类型特例
+template <>
+inline void sequence<octet>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutOctet(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<octet>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutOctet(_buffer[IDL_j]);
+	}
+}
+
+//wangyi 2021/10/13  unsigned short类型特例
+template <>
+inline void sequence<unsigned short>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutUShort(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<unsigned short>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutUShort(_buffer[IDL_j]);
+	}
+}
+
+//wangyi 2021/10/13  unsigned long类型特例
+template <>
+inline void sequence<unsigned long>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutULong(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<unsigned long>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutULong(_buffer[IDL_j]);
+	}
+}
+
+//wangyi 2021/10/13  unsigned long long类型特例
+template <>
+inline void sequence<unsigned long long>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutULongLong(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<unsigned long long>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutULongLong(_buffer[IDL_j]);
+	}
+}
+
+//wangyi 2021/10/13  float类型特例
+template <>
+inline void sequence<float>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutFloat(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<float>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutFloat(_buffer[IDL_j]);
+	}
+}
+
+//wangyi 2021/10/13  double类型特例
+template <>
+inline void sequence<double>::Marshal(CDR *cdr) const {
+	cdr->PutULong(_length);
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutDouble(_buffer[IDL_j]);
+	}
+}
+
+template <>
+inline void sequence<double>::UnMarshal(CDR *cdr) {
+	cdr->GetULong(_length);
+	if (!_release || (_length > _maximum)) {
+		if (_buffer && _release) {
+			freebuf(_buffer);
+		}
+		_maximum = _length;
+		_buffer = allocbuf(_maximum);
+		_release = 1;
+	}
+	for (unsigned long IDL_j = 0; IDL_j < _length; IDL_j++) {
+		cdr->PutDouble(_buffer[IDL_j]);
+	}
+}

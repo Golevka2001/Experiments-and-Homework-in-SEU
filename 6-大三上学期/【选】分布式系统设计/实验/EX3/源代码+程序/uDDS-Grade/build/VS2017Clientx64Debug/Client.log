@@ -1,0 +1,96 @@
+﻿  In file included from IDL_DataReader.cpp:1:
+  In file included from ./IDL_DataReader.h:5:
+  In file included from ..\3rd\uDDS\include/BasicTypes.h:15:
+  In file included from ..\3rd\uDDS\include/SEQ/Sequence.h:5:
+..\3rd\uDDS\include\CDR/CDR.h(158,34): warning : implicit conversion from 'int' to 'char' changes value from 16843009 to 1 [-Wconstant-conversion]
+  In file included from IDL_DataReader.cpp:1:
+  In file included from ./IDL_DataReader.h:5:
+..\3rd\uDDS\include/BasicTypes.h(979,38): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(981,43): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(983,57): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(985,57): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(987,64): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(989,64): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(991,65): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(993,65): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(995,63): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(997,63): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(999,70): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(1001,70): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+  In file included from IDL_DataWriter.cpp:1:
+  In file included from ./IDL_DataWriter.h:4:
+  In file included from ..\3rd\uDDS\include/BasicTypes.h:15:
+  In file included from ..\3rd\uDDS\include/SEQ/Sequence.h:5:
+..\3rd\uDDS\include\CDR/CDR.h(158,34): warning : implicit conversion from 'int' to 'char' changes value from 16843009 to 1 [-Wconstant-conversion]
+  In file included from IDL_DataWriter.cpp:1:
+  In file included from ./IDL_DataWriter.h:4:
+..\3rd\uDDS\include/BasicTypes.h(979,38): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(981,43): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(983,57): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(985,57): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(987,64): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(989,64): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(991,65): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(993,65): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(995,63): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(997,63): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(999,70): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(1001,70): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+IDL_DataWriter.cpp(35,3): warning : 'delete' applied to a pointer that was allocated with 'new[]'; did you mean 'delete[]'? [-Wmismatched-new-delete]
+IDL_DataWriter.cpp(21,14): message : allocated with 'new[]' here
+IDL_DataWriter.cpp(39,3): warning : 'delete' applied to a pointer that was allocated with 'new[]'; did you mean 'delete[]'? [-Wmismatched-new-delete]
+IDL_DataWriter.cpp(28,20): message : allocated with 'new[]' here
+IDL_DataWriter.cpp(75,3): warning : 'delete' applied to a pointer that was allocated with 'new[]'; did you mean 'delete[]'? [-Wmismatched-new-delete]
+IDL_DataWriter.cpp(61,14): message : allocated with 'new[]' here
+IDL_DataWriter.cpp(79,3): warning : 'delete' applied to a pointer that was allocated with 'new[]'; did you mean 'delete[]'? [-Wmismatched-new-delete]
+IDL_DataWriter.cpp(68,20): message : allocated with 'new[]' here
+  In file included from IDL_UserDataType.cpp:3:
+  In file included from ./IDL_UserDataType.h:3:
+  In file included from ..\3rd\uDDS\include/CDR/CDR.h:14:
+  In file included from ..\3rd\uDDS\include/BasicTypes.h:15:
+  In file included from ..\3rd\uDDS\include/SEQ/Sequence.h:5:
+..\3rd\uDDS\include/CDR/CDR.h(158,34): warning : implicit conversion from 'int' to 'char' changes value from 16843009 to 1 [-Wconstant-conversion]
+  In file included from IDL_UserDataType.cpp:3:
+  In file included from ./IDL_UserDataType.h:3:
+  In file included from ..\3rd\uDDS\include/CDR/CDR.h:14:
+..\3rd\uDDS\include/BasicTypes.h(979,38): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(981,43): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(983,57): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(985,57): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(987,64): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(989,64): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(991,65): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(993,65): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(995,63): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(997,63): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(999,70): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(1001,70): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+  In file included from client.cpp:11:
+  In file included from ./IDL_TypeSupport.h:6:
+  In file included from ./IDL_DataWriter.h:4:
+  In file included from ..\3rd\uDDS\include/BasicTypes.h:15:
+  In file included from ..\3rd\uDDS\include/SEQ/Sequence.h:5:
+..\3rd\uDDS\include\CDR/CDR.h(158,34): warning : implicit conversion from 'int' to 'char' changes value from 16843009 to 1 [-Wconstant-conversion]
+  In file included from client.cpp:11:
+  In file included from ./IDL_TypeSupport.h:6:
+  In file included from ./IDL_DataWriter.h:4:
+..\3rd\uDDS\include/BasicTypes.h(979,38): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(981,43): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(983,57): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(985,57): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(987,64): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(989,64): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(991,65): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(993,65): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(995,63): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(997,63): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(999,70): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+..\3rd\uDDS\include/BasicTypes.h(1001,70): warning : suggest braces around initialization of subobject [-Wmissing-braces]
+client.cpp(46,38): warning : format specifies type 'int' but the argument has type 'ReturnCode_t' (aka 'long') [-Wformat]
+client.cpp(79,60): warning : format specifies type 'int' but the argument has type 'ReturnCode_t' (aka 'long') [-Wformat]
+client.cpp(85,53): warning : format specifies type 'int' but the argument has type 'ReturnCode_t' (aka 'long') [-Wformat]
+client.cpp(148,56): warning : format specifies type 'int' but the argument has type 'ReturnCode_t' (aka 'long') [-Wformat]
+client.cpp(156,53): warning : format specifies type 'int' but the argument has type 'ReturnCode_t' (aka 'long') [-Wformat]
+client.cpp(262,42): warning : format specifies type 'int' but the argument has type 'ReturnCode_t' (aka 'long') [-Wformat]
+client.cpp(271,66): warning : format specifies type 'int' but the argument has type 'ReturnCode_t' (aka 'long') [-Wformat]
+  Client.vcxproj -> C:\Users\12436\Documents\MyProjects\Cpp\uDDS-Grade\bin\VS2017x64Debug\Client.exe

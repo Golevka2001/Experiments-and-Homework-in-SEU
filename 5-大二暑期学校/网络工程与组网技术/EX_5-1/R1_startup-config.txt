@@ -1,0 +1,113 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+ipv6 unicast-routing
+!
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524BOBC-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Tunnel2
+ no ip address
+ mtu 1476
+ ipv6 address 2001:DA8:6464:A2::1/64
+ ipv6 enable
+ tunnel source GigabitEthernet0/0
+ tunnel destination 222.94.88.2
+ tunnel mode ipv6ip
+!
+!
+interface Tunnel1
+ no ip address
+ mtu 1476
+ ipv6 address 2001:DA8:6464:A1::1/64
+ ipv6 enable
+ tunnel source GigabitEthernet0/0
+ tunnel destination 58.32.166.2
+ tunnel mode ipv6ip
+!
+!
+interface GigabitEthernet0/0
+ ip address 58.212.208.2 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ ipv6 address 2001:DA8:A3:A000::1/64
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 58.212.208.1 
+!
+ip flow-export version 9
+!
+ipv6 route 2001:DA8:B1:B000::/64 2001:DA8:6464:A1::2
+ipv6 route 2001:DA8:B1:B001::/64 2001:DA8:6464:A1::2
+ipv6 route 2001:DA8:A2:A000::/64 2001:DA8:6464:A2::2
+ipv6 route 2001:DA8:A3:A001::/64 2001:DA8:A3:A000::2
+ipv6 route 2001:DA8:A3:A002::/64 2001:DA8:A3:A000::2
+!
+!
+no cdp run
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+

@@ -1,0 +1,1 @@
+cmd_/home/golevka/Projects/ch2/Homework2/Module.symvers := sed 's/\.ko$$/\.o/' /home/golevka/Projects/ch2/Homework2/modules.order | scripts/mod/modpost -m -a  -o /home/golevka/Projects/ch2/Homework2/Module.symvers -e -i Module.symvers   -T -

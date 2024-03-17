@@ -1,0 +1,145 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3621,        102]*)
+(*NotebookOutlinePosition[      4274,        125]*)
+(*  CellTagsIndexPosition[      4230,        121]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(\(Limit[\((Tan[x] - Sin[x])\)/x^3, 
+      x \[Rule] 0]\)\(\[IndentingNewLine]\)
+    \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(Limit[n\ Sin[1/n], n \[Rule] \[Infinity]]\)\(\[IndentingNewLine]\)
+    \)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(Limit[ArcTan[x], x \[Rule] \[Infinity], 
+      Direction \[Rule] 
+        1]\)\(\[IndentingNewLine]\)\(\[IndentingNewLine]\)\)\)], "Input"],
+
+Cell[BoxData[{
+    \(\(data = Table[i\ Sin[1\/i], {i, 1, 10}];\)\), "\[IndentingNewLine]", 
+    \(ListPlot[data, PlotRange \[Rule] {0, 2}, 
+      PlotStyle \[Rule] PointSize[0.018]]\), "\[IndentingNewLine]", 
+    \(\)}], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"aa", 
+        StyleBox["=",
+          FormatType->StandardForm,
+          FontFamily->"Courier New",
+          FontSize->10.5], 
+        StyleBox[\({Sin[1], 2\ Sin[1/2], 3\ Sin[1/3]}\),
+          FormatType->StandardForm,
+          FontFamily->"Courier New",
+          FontSize->10.5]}], "\[IndentingNewLine]"}]], "Input"],
+
+Cell[BoxData[
+    \(\(\(Do[aa = Append[aa, i\ Sin[1/i]]; 
+      ListPlot[aa, PlotRange \[Rule] {0, 2}, 
+        PlotStyle \[Rule] PointSize[0.018]], {i, 4, 
+        20}]\)\(\[IndentingNewLine]\)\(\[IndentingNewLine]\)\)\)], "Input"],
+
+Cell[BoxData[{
+    \(f[x_\ , y_] := \@\(x\ y\); g[x_, y_] := \(x + y\)\/2; xn = 1; 
+    yn = 2;\), "\[IndentingNewLine]", 
+    \(\(For[n = 2, n \[LessEqual] 10, \(n++\), xN = xn; yN = yn; 
+        xn = N[f[xN, yN]]; yn = N[g[xN, yN]]; 
+        Print[xn, "\<      \>", yn]];\)\), "\[IndentingNewLine]", 
+    \(Print["\<x10=   \>", xn, "\<    y10=\>", yn]\), "\[IndentingNewLine]", 
+    \(\)}], "Input"],
+
+Cell[BoxData[{
+    \(x[1] = 1/2; s = 1/\((x[1] + 1)\);\), "\[IndentingNewLine]", 
+    \(\(For[n = 1, n \[LessEqual] 20, \(n++\), x[N] = x[n]; 
+        x[n + 1] = x[N]^2 + x[N]; s = s + 1/\((x[n + 1] + 1)\); 
+        Print[n, "\<   \>", N[s]]];\)\)}], "Input"]
+},
+FrontEndVersion->"4.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1024}, {0, 685}},
+WindowSize->{487, 537},
+WindowMargins->{{0, Automatic}, {Automatic, 0}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 121, 3, 50, "Input"],
+Cell[1841, 54, 110, 2, 50, "Input"],
+Cell[1954, 58, 163, 3, 70, "Input"],
+Cell[2120, 63, 229, 4, 103, "Input"],
+Cell[2352, 69, 364, 10, 50, "Input"],
+Cell[2719, 81, 232, 4, 110, "Input"],
+Cell[2954, 87, 401, 7, 121, "Input"],
+Cell[3358, 96, 259, 4, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

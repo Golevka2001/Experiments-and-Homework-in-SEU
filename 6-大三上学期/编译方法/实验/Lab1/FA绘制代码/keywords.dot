@@ -1,0 +1,77 @@
+// break|char|continue|double|else|float|for|if|int|return|void
+digraph keywords {
+    rankdir = LR;
+    node [shape = circle; style = rounded;];
+    
+    s [style = invis;];
+    5 [shape = doublecircle;];
+    9 [shape = doublecircle;];
+    16 [shape = doublecircle;];
+    22 [shape = doublecircle;];
+    26 [shape = doublecircle;];
+    31 [shape = doublecircle;];
+    33 [shape = doublecircle;];
+    35 [shape = doublecircle;];
+    37 [shape = doublecircle;];
+    43 [shape = doublecircle;];
+    47 [shape = doublecircle;];
+    
+    // break:
+    0 -> 1 [label = "b";];
+    1 -> 2 [label = "r";];
+    2 -> 3 [label = "e";];
+    3 -> 4 [label = "a";];
+    4 -> 5 [label = "k";];
+    // char:
+    0 -> 6 [label = "c";];
+    6 -> 7 [label = "h";];
+    7 -> 8 [label = "a";];
+    8 -> 9 [label = "r";];
+    // continue:
+    6 -> 10 [label = "o";];
+    10 -> 11 [label = "n";];
+    11 -> 12 [label = "t";];
+    12 -> 13 [label = "i";];
+    13 -> 14 [label = "n";];
+    14 -> 15 [label = "u";];
+    15 -> 16 [label = "e";];
+    // double:
+    0 -> 17 [label = "d";];
+    17 -> 18 [label = "o";];
+    18 -> 19 [label = "u";];
+    19 -> 20 [label = "b";];
+    20 -> 21 [label = "l";];
+    21 -> 22 [label = "e";];
+    // else:
+    0 -> 23 [label = "e";];
+    23 -> 24 [label = "l";];
+    24 -> 25 [label = "s";];
+    25 -> 26 [label = "e";];
+    // float:
+    0 -> 27 [label = "f";];
+    27 -> 28 [label = "l";];
+    28 -> 29 [label = "o";];
+    29 -> 30 [label = "a";];
+    30 -> 31 [label = "t";];
+    // for:
+    27 -> 32 [label = "o";];
+    32 -> 33 [label = "r";];
+    // if:
+    0 -> 34 [label = "i";];
+    34 -> 35 [label = "f";];
+    // int:
+    34 -> 36 [label = "n";];
+    36 -> 37 [label = "t";];
+    // return:
+    0 -> 38 [label = "r";];
+    38 -> 39 [label = "e";];
+    39 -> 40 [label = "t";];
+    40 -> 41 [label = "u";];
+    41 -> 42 [label = "r";];
+    42 -> 43 [label = "n";];
+    // void:
+    0 -> 44 [label = "v";];
+    44 -> 45 [label = "o";];
+    45 -> 46 [label = "i";];
+    46 -> 47 [label = "d";];
+}

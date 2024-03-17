@@ -1,0 +1,55 @@
+--lpm_mux CASCADE_CHAIN="MANUAL" DEVICE_FAMILY="Stratix II" IGNORE_CASCADE_BUFFERS="OFF" LPM_SIZE=2 LPM_WIDTH=8 LPM_WIDTHS=1 data result sel
+--VERSION_BEGIN 9.1SP2 cbx_lpm_mux 2010:03:24:20:43:43:SJ cbx_mgl 2010:03:24:21:01:05:SJ  VERSION_END
+
+
+-- Copyright (C) 1991-2010 Altera Corporation
+--  Your use of Altera Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Altera Program License 
+--  Subscription Agreement, Altera MegaCore Function License 
+--  Agreement, or other applicable license agreement, including, 
+--  without limitation, that your use is for the sole purpose of 
+--  programming logic devices manufactured by Altera and sold by 
+--  Altera or its authorized distributors.  Please refer to the 
+--  applicable agreement for further details.
+
+
+
+--synthesis_resources = lut 3 
+SUBDESIGN mux_unc
+( 
+	data[15..0]	:	input;
+	result[7..0]	:	output;
+	sel[0..0]	:	input;
+) 
+VARIABLE
+	l1_w0_n0_mux_dataout	:	WIRE;
+	l1_w1_n0_mux_dataout	:	WIRE;
+	l1_w2_n0_mux_dataout	:	WIRE;
+	l1_w3_n0_mux_dataout	:	WIRE;
+	l1_w4_n0_mux_dataout	:	WIRE;
+	l1_w5_n0_mux_dataout	:	WIRE;
+	l1_w6_n0_mux_dataout	:	WIRE;
+	l1_w7_n0_mux_dataout	:	WIRE;
+	data_wire[15..0]	: WIRE;
+	result_wire_ext[7..0]	: WIRE;
+	sel_wire[0..0]	: WIRE;
+
+BEGIN 
+	l1_w0_n0_mux_dataout = sel_wire[0..0] & data_wire[8..8] # !(sel_wire[0..0]) & data_wire[0..0];
+	l1_w1_n0_mux_dataout = sel_wire[0..0] & data_wire[9..9] # !(sel_wire[0..0]) & data_wire[1..1];
+	l1_w2_n0_mux_dataout = sel_wire[0..0] & data_wire[10..10] # !(sel_wire[0..0]) & data_wire[2..2];
+	l1_w3_n0_mux_dataout = sel_wire[0..0] & data_wire[11..11] # !(sel_wire[0..0]) & data_wire[3..3];
+	l1_w4_n0_mux_dataout = sel_wire[0..0] & data_wire[12..12] # !(sel_wire[0..0]) & data_wire[4..4];
+	l1_w5_n0_mux_dataout = sel_wire[0..0] & data_wire[13..13] # !(sel_wire[0..0]) & data_wire[5..5];
+	l1_w6_n0_mux_dataout = sel_wire[0..0] & data_wire[14..14] # !(sel_wire[0..0]) & data_wire[6..6];
+	l1_w7_n0_mux_dataout = sel_wire[0..0] & data_wire[15..15] # !(sel_wire[0..0]) & data_wire[7..7];
+	data_wire[] = ( data[]);
+	result[] = result_wire_ext[];
+	result_wire_ext[] = ( l1_w7_n0_mux_dataout, l1_w6_n0_mux_dataout, l1_w5_n0_mux_dataout, l1_w4_n0_mux_dataout, l1_w3_n0_mux_dataout, l1_w2_n0_mux_dataout, l1_w1_n0_mux_dataout, l1_w0_n0_mux_dataout);
+	sel_wire[] = ( sel[0..0]);
+END;
+--VALID FILE

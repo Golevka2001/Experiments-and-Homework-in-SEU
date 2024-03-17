@@ -1,0 +1,179 @@
+digraph total {
+    rankdir = LR;
+    node [shape = circle; style = rounded;];
+    
+    s [style = invis;];
+    s -> 0;
+    
+    // blank:
+    1 [shape = doublecircle;];
+    0 -> 1 [label = "blank";];
+    
+    // constans:
+    2 [shape = doublecircle;];
+    4 [shape = doublecircle;];
+    0 -> 2 [label = "[0-9]";];
+    2 -> 2 [label = "[0-9]";];
+    2 -> 3 [label = "\\.";];
+    3 -> 4 [label = "[0-9]";];
+    4 -> 4 [label = "[0-9]";];
+    
+    // identifiers:
+    5 [shape = doublecircle;];
+    0 -> 5 [label = "[A-Za-z]";];
+    0 -> 5 [label = "_";];
+    5 -> 5 [label = "[A-Za-z]";];
+    5 -> 5 [label = "[0-9]";];
+    5 -> 5 [label = "_";];
+    
+    // characters:
+    9 [shape = doublecircle;];
+    0 -> 6 [label = "\'";];
+    6 -> 7 [label = "[^\\\\']";];
+    6 -> 8 [label = "\\";];
+    8 -> 7 [label = ".";];
+    7 -> 9 [label = "\'";];
+    
+    // strings:
+    12 [shape = doublecircle;];
+    0 -> 10 [label = "\"";];
+    10 -> 10 [label = "[^\\\\\"]";];
+    10 -> 11 [label = "\\";];
+    11 -> 10 [label = ".";];
+    10 -> 12 [label = "\"";];
+    
+    // // keywords:
+    // 17 [shape = doublecircle;];
+    // 21 [shape = doublecircle;];
+    // 28 [shape = doublecircle;];
+    // 34 [shape = doublecircle;];
+    // 38 [shape = doublecircle;];
+    // 43 [shape = doublecircle;];
+    // 45 [shape = doublecircle;];
+    // 47 [shape = doublecircle;];
+    // 49 [shape = doublecircle;];
+    // 55 [shape = doublecircle;];
+    // 59 [shape = doublecircle;];
+    
+    // // break:
+    // 0 -> 13 [label = "b";];
+    // 13 -> 14 [label = "r";];
+    // 14 -> 15 [label = "e";];
+    // 15 -> 16 [label = "a";];
+    // 16 -> 17 [label = "k";];
+    // // char:
+    // 0 -> 18 [label = "c";];
+    // 18 -> 19 [label = "h";];
+    // 19 -> 20 [label = "a";];
+    // 20 -> 21 [label = "r";];
+    // // continue:
+    // 18 -> 22 [label = "o";];
+    // 22 -> 23 [label = "n";];
+    // 23 -> 24 [label = "t";];
+    // 24 -> 25 [label = "i";];
+    // 25 -> 26 [label = "n";];
+    // 26 -> 27 [label = "u";];
+    // 27 -> 28 [label = "e";];
+    // // double:
+    // 0 -> 29 [label = "d";];
+    // 29 -> 30 [label = "o";];
+    // 30 -> 31 [label = "u";];
+    // 31 -> 32 [label = "b";];
+    // 32 -> 33 [label = "l";];
+    // 33 -> 34 [label = "e";];
+    // // else:
+    // 0 -> 35 [label = "e";];
+    // 35 -> 36 [label = "l";];
+    // 36 -> 37 [label = "s";];
+    // 37 -> 38 [label = "e";];
+    // // float:
+    // 0 -> 39 [label = "f";];
+    // 39 -> 40 [label = "l";];
+    // 40 -> 41 [label = "o";];
+    // 41 -> 42 [label = "a";];
+    // 42 -> 43 [label = "t";];
+    // // for:
+    // 39 -> 44 [label = "o";];
+    // 44 -> 45 [label = "r";];
+    // // if:
+    // 0 -> 46 [label = "i";];
+    // 46 -> 47 [label = "f";];
+    // // int:
+    // 46 -> 48 [label = "n";];
+    // 48 -> 49 [label = "t";];
+    // // return:
+    // 0 -> 50 [label = "r";];
+    // 50 -> 51 [label = "e";];
+    // 51 -> 52 [label = "t";];
+    // 52 -> 53 [label = "u";];
+    // 53 -> 54 [label = "r";];
+    // 54 -> 55 [label = "n";];
+    // // void:
+    // 0 -> 56 [label = "v";];
+    // 56 -> 57 [label = "o";];
+    // 57 -> 58 [label = "i";];
+    // 58 -> 59 [label = "d";];
+    
+    // comments:
+    14 [shape = doublecircle;];
+    17 [shape = doublecircle;];
+    0 -> 13 [label = "/";];
+    13 -> 14 [label = "/";];
+    14 -> 14 [label = "[^\\n]";];
+    13 -> 15 [label = "*";];
+    15 -> 15 [label = "[^\\*]";];
+    15 -> 16 [label = "*";];
+    16 -> 15 [label = "[^/]";];
+    16 -> 17 [label = "/";];
+    
+    // operators:
+    18 [shape = doublecircle;];
+    19 [shape = doublecircle;];
+    20 [shape = doublecircle;];
+    21 [shape = doublecircle;];
+    22 [shape = doublecircle;];
+    23 [shape = doublecircle;];
+    24 [shape = doublecircle;];
+    25 [shape = doublecircle;];
+    26 [shape = doublecircle;];
+    27 [shape = doublecircle;];
+    28 [shape = doublecircle;];
+    29 [shape = doublecircle;];
+    30;
+    31 [shape = doublecircle;];
+    32;
+    33 [shape = doublecircle;];
+    34 [shape = doublecircle;];
+    35 [shape = doublecircle;];
+    36 [shape = doublecircle;];
+    37 [shape = doublecircle;];
+    38 [shape = doublecircle;];
+    39 [shape = doublecircle;];
+    40 [shape = doublecircle;];
+    41 [shape = doublecircle;];
+    
+    0 -> 18 [label = "+";];
+    0 -> 19 [label = "-";];
+    0 -> 20 [label = "*";];
+    0 -> 21 [label = "%";];
+    0 -> 22 [label = "=";];
+    22 -> 23 [label = "=";];
+    0 -> 24 [label = "<";];
+    24 -> 25 [label = "=";];
+    0 -> 26 [label = ">";];
+    26 -> 27 [label = "=";];
+    0 -> 28 [label = "!";];
+    28 -> 29 [label = "=";];
+    0 -> 30 [label = "&";];
+    30 -> 31 [label = "&";];
+    0 -> 32 [label = "|";];
+    32 -> 33 [label = "|";];
+    0 -> 34 [label = ",";];
+    0 -> 35 [label = ";";];
+    0 -> 36 [label = "(";];
+    0 -> 37 [label = ")";];
+    0 -> 38 [label = "[";];
+    0 -> 39 [label = "]";];
+    0 -> 40 [label = "{";];
+    0 -> 41 [label = "}";];
+}

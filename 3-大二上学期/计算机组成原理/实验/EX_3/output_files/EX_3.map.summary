@@ -1,0 +1,18 @@
+Analysis & Synthesis Status : Successful - Wed Nov 10 18:09:37 2021
+Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Full Version
+Revision Name : EX_3
+Top-level Entity Name : EX_3_1
+Family : Cyclone IV GX
+Total logic elements : 37
+    Total combinational functions : 37
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 38
+Total virtual pins : 0
+Total memory bits : 1,024
+Embedded Multiplier 9-bit elements : 0
+Total GXB Receiver Channel PCS : 0
+Total GXB Receiver Channel PMA : 0
+Total GXB Transmitter Channel PCS : 0
+Total GXB Transmitter Channel PMA : 0
+Total PLLs : 0

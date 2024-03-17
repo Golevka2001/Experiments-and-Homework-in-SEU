@@ -1,0 +1,278 @@
+>>>date
+Thu May 11 16:51:14 CST 2023
+
+
+>>>cat /etc/issue
+Ubuntu 20.04.6 LTS \n \l
+
+
+>>>lspci
+2441:00:00.0 System peripheral: Red Hat, Inc. Device 105a (rev 01)
+2b96:00:00.0 SCSI storage controller: Red Hat, Inc. Virtio filesystem (rev 01)
+4059:00:00.0 SCSI storage controller: Red Hat, Inc. Virtio console (rev 01)
+4bf6:00:00.0 3D controller: Microsoft Corporation Device 008e
+9221:00:00.0 SCSI storage controller: Red Hat, Inc. Virtio filesystem (rev 01)
+c3b7:00:00.0 SCSI storage controller: Red Hat, Inc. Virtio filesystem (rev 01)
+c58b:00:00.0 3D controller: Microsoft Corporation Device 008e
+
+
+>>>lscpu
+Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   39 bits physical, 48 bits virtual
+CPU(s):                          2
+On-line CPU(s) list:             0,1
+Thread(s) per core:              2
+Core(s) per socket:              1
+Socket(s):                       1
+Vendor ID:                       GenuineIntel
+CPU family:                      6
+Model:                           158
+Model name:                      Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+Stepping:                        10
+CPU MHz:                         2592.008
+BogoMIPS:                        5184.01
+Virtualization:                  VT-x
+Hypervisor vendor:               Microsoft
+Virtualization type:             full
+L1d cache:                       32 KiB
+L1i cache:                       32 KiB
+L2 cache:                        256 KiB
+L3 cache:                        12 MiB
+Vulnerability Itlb multihit:     KVM: Mitigation: VMX disabled
+Vulnerability L1tf:              Mitigation; PTE Inversion; VMX conditional cache flushes, SMT vulnerable
+Vulnerability Mds:               Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Meltdown:          Mitigation; PTI
+Vulnerability Mmio stale data:   Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Retbleed:          Mitigation; IBRS
+Vulnerability Spec store bypass: Mitigation; Speculative Store Bypass disabled via prctl and seccomp
+Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:        Mitigation; IBRS, IBPB conditional, RSB filling, PBRSB-eIBRS Not affected
+Vulnerability Srbds:             Unknown: Dependent on hypervisor status
+Vulnerability Tsx async abort:   Not affected
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology cpuid pni pclmulqdq vmx ssse3 fma cx16 pdcm pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi ept vpid ept_ad fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves flush_l1d arch_capabilities
+
+
+>>>free -h
+              total        used        free      shared  buff/cache   available
+Mem:          3.8Gi       1.0Gi       1.6Gi       2.0Mi       1.2Gi       2.5Gi
+Swap:          64Gi          0B        64Gi
+
+
+>>>sudo fdisk -l
+Disk /dev/ram0: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram1: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram2: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram3: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram4: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram5: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram6: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram7: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram8: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram9: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram10: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram11: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram12: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram13: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram14: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/ram15: 64 MiB, 67108864 bytes, 131072 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/sda: 363.33 MiB, 380968960 bytes, 744080 sectors
+Disk model: Virtual Disk
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+Disk /dev/sdb: 64 GiB, 68719480832 bytes, 134217736 sectors
+Disk model: Virtual Disk
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+Disk /dev/sdc: 256 GiB, 274877906944 bytes, 536870912 sectors
+Disk model: Virtual Disk
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+>>>df -h
+Filesystem      Size  Used Avail Use% Mounted on
+none            2.0G  4.0K  2.0G   1% /mnt/wsl
+none            954G  592G  362G  63% /usr/lib/wsl/drivers
+none            2.0G     0  2.0G   0% /usr/lib/wsl/lib
+/dev/sdc        251G   24G  215G  10% /
+none            2.0G  100K  2.0G   1% /mnt/wslg
+rootfs          2.0G  1.9M  2.0G   1% /init
+none            2.0G     0  2.0G   0% /dev
+none            2.0G  4.0K  2.0G   1% /run
+none            2.0G     0  2.0G   0% /run/lock
+none            2.0G     0  2.0G   0% /run/shm
+none            2.0G     0  2.0G   0% /run/user
+tmpfs           2.0G     0  2.0G   0% /sys/fs/cgroup
+none            2.0G   76K  2.0G   1% /mnt/wslg/versions.txt
+none            2.0G   76K  2.0G   1% /mnt/wslg/doc
+drvfs           954G  592G  362G  63% /mnt/c
+
+
+>>>uptime
+ 17:08:47 up  5:38,  0 users,  load average: 0.01, 0.01, 0.00
+
+
+>>>service --status-all
+ [ - ]  apparmor
+ [ - ]  atd
+ [ - ]  console-setup.sh
+ [ - ]  cron
+ [ - ]  dbus
+ [ + ]  irqbalance
+ [ - ]  iscsid
+ [ - ]  keyboard-setup.sh
+ [ - ]  lvm2
+ [ - ]  lvm2-lvmpolld
+ [ - ]  multipath-tools
+ [ + ]  open-iscsi
+ [ - ]  open-vm-tools
+ [ - ]  procps
+ [ - ]  rsync
+ [ - ]  rsyslog
+ [ - ]  screen-cleanup
+ [ - ]  ssh
+ [ + ]  udev
+ [ - ]  ufw
+ [ - ]  unattended-upgrades
+ [ - ]  uuidd
+ [ - ]  x11-common
+
+
+>>>ifconfig -a
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.21.253.78  netmask 255.255.240.0  broadcast 172.21.255.255
+        inet6 fe80::215:5dff:fe22:329a  prefixlen 64  scopeid 0x20<link>
+        ether 00:15:5d:22:32:9a  txqueuelen 1000  (Ethernet)
+        RX packets 16809  bytes 5926811 (5.9 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 9643  bytes 1631267 (1.6 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 120371  bytes 255804624 (255.8 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 120371  bytes 255804624 (255.8 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+>>>netstat -rn
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         172.21.240.1    0.0.0.0         UG        0 0          0 eth0
+172.21.240.0    0.0.0.0         255.255.240.0   U         0 0          0 eth0
+
+
+>>>arp -a
+MATRIX (172.21.240.1) at 00:15:5d:22:35:89 [ether] on eth0
+
+
+>>>ps -aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   2324  1520 ?        Sl   11:30   0:00 /init
+root         4  0.0  0.0   2376    68 ?        Sl   11:30   0:00 plan9 --control-socket 5 --log-level 4 --server-fd 6 --pipe-fd 8 --log-truncate
+root        12  0.0  0.0   2372   124 ?        S    11:30   0:00 /init
+gol3vka     13  0.0  0.0   2616   524 pts/0    Ss+  11:30   0:00 sh -c "$VSCODE_WSL_EXT_LOCATION/scripts/wslServer.sh" 252e5463d60e63238250799aef7375787f68b4ee stable code-server .vscode-server --host=127.0.0.1 --port=0 --connection-token=3111018219-471624506-2275927502-3989327658 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka     14  0.0  0.0   2616   596 pts/0    S+   11:30   0:00 sh /mnt/c/Users/gol3vka/.vscode/extensions/ms-vscode-remote.remote-wsl-0.78.4/scripts/wslServer.sh 252e5463d60e63238250799aef7375787f68b4ee stable code-server .vscode-server --host=127.0.0.1 --port=0 --connection-token=3111018219-471624506-2275927502-3989327658 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka     19  0.0  0.0   2616   592 pts/0    S+   11:30   0:00 sh /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/bin/code-server --host=127.0.0.1 --port=0 --connection-token=3111018219-471624506-2275927502-3989327658 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka     23  0.2  2.6 958912 105152 pts/0   Sl+  11:30   0:43 /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/node /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/out/server-main.js --host=127.0.0.1 --port=0 --connection-token=3111018219-471624506-2275927502-3989327658 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka     34  0.0  1.2 722352 51744 pts/0    Sl+  11:30   0:04 /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/node /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/out/bootstrap-fork --type=ptyHost --logsPath /home/gol3vka/.vscode-server/data/logs/20230511T102602
+root      3008  0.0  0.0   2372   124 ?        S    13:46   0:00 /init
+gol3vka   3009  0.0  0.8 321284 32812 pts/1    Ssl+ 13:46   0:00 /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/node -e const net = require('net'); process.stdin.pause(); const client = net.createConnection({ host: '127.0.0.1', port: 45249 }, () => { client.pipe(process.stdout); process.stdin.pipe(client); }); client.on('close', function (hadError) { console.error(hadError ? 'Remote close with error' : 'Remote close'); process.exit(hadError ? 1 : 0); }); client.on('error', function (err) { process.stderr.write(err && (err.stack || err.message) || String(err)); });
+root      3017  0.0  0.0   2372   124 ?        S    13:46   0:00 /init
+gol3vka   3018  0.0  0.8 321284 34908 pts/4    Ssl+ 13:46   0:00 /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/node -e const net = require('net'); process.stdin.pause(); const client = net.createConnection({ host: '127.0.0.1', port: 45249 }, () => { client.pipe(process.stdout); process.stdin.pipe(client); }); client.on('close', function (hadError) { console.error(hadError ? 'Remote close with error' : 'Remote close'); process.exit(hadError ? 1 : 0); }); client.on('error', function (err) { process.stderr.write(err && (err.stack || err.message) || String(err)); });
+root      3392  0.0  0.0   2372   124 ?        S    15:00   0:00 /init
+gol3vka   3393  0.0  0.0   2616   592 pts/2    Ss+  15:00   0:00 sh -c "$VSCODE_WSL_EXT_LOCATION/scripts/wslServer.sh" 252e5463d60e63238250799aef7375787f68b4ee stable code-server .vscode-server --host=127.0.0.1 --port=0 --connection-token=1380017551-3620521206-832525878-3724557074 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   3394  0.0  0.0   2616   532 pts/2    S+   15:00   0:00 sh /mnt/c/Users/gol3vka/.vscode/extensions/ms-vscode-remote.remote-wsl-0.78.4/scripts/wslServer.sh 252e5463d60e63238250799aef7375787f68b4ee stable code-server .vscode-server --host=127.0.0.1 --port=0 --connection-token=1380017551-3620521206-832525878-3724557074 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   3399  0.0  0.0   2616   532 pts/2    S+   15:00   0:00 sh /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/bin/code-server --host=127.0.0.1 --port=0 --connection-token=1380017551-3620521206-832525878-3724557074 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   3403  0.1  1.8 940016 76100 pts/2    Sl+  15:00   0:15 /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/node /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/out/server-main.js --host=127.0.0.1 --port=0 --connection-token=1380017551-3620521206-832525878-3724557074 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   3414  0.0  1.3 638632 53116 pts/2    Sl+  15:00   0:01 /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/node /home/gol3vka/.vscode-server/bin/252e5463d60e63238250799aef7375787f68b4ee/out/bootstrap-fork --type=ptyHost --logsPath /home/gol3vka/.vscode-server/data/logs/20230511T141455
+root      3678  0.0  0.0   2372   124 ?        S    15:09   0:00 /init
+gol3vka   3679  0.0  0.0   2616   536 pts/3    Ss+  15:09   0:00 sh -c "$VSCODE_WSL_EXT_LOCATION/scripts/wslServer.sh" 6a995c4f4cc2ced6e3237749973982e751cb0bf9 stable code-server .vscode-server --host=127.0.0.1 --port=0 --connection-token=3814662876-539954792-812541767-1738513831 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   3680  0.0  0.0   2616  1724 pts/3    S+   15:09   0:00 sh /mnt/c/Users/gol3vka/.vscode/extensions/ms-vscode-remote.remote-wsl-0.78.4/scripts/wslServer.sh 6a995c4f4cc2ced6e3237749973982e751cb0bf9 stable code-server .vscode-server --host=127.0.0.1 --port=0 --connection-token=3814662876-539954792-812541767-1738513831 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   3705  0.0  0.0   2616   532 pts/3    S+   15:09   0:00 sh /home/gol3vka/.vscode-server/bin/6a995c4f4cc2ced6e3237749973982e751cb0bf9/bin/code-server --host=127.0.0.1 --port=0 --connection-token=3814662876-539954792-812541767-1738513831 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   3709  0.1  2.1 943180 85312 pts/3    Sl+  15:09   0:11 /home/gol3vka/.vscode-server/bin/6a995c4f4cc2ced6e3237749973982e751cb0bf9/node /home/gol3vka/.vscode-server/bin/6a995c4f4cc2ced6e3237749973982e751cb0bf9/out/server-main.js --host=127.0.0.1 --port=0 --connection-token=3814662876-539954792-812541767-1738513831 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   3720  0.0  1.3 796320 53540 pts/3    Sl+  15:09   0:03 /home/gol3vka/.vscode-server/bin/6a995c4f4cc2ced6e3237749973982e751cb0bf9/node /home/gol3vka/.vscode-server/bin/6a995c4f4cc2ced6e3237749973982e751cb0bf9/out/bootstrap-fork --type=ptyHost --logsPath /home/gol3vka/.vscode-server/data/logs/20230511T142328
+root      5022  0.0  0.0   2352   112 ?        Ss   16:33   0:00 /init
+root      5023  0.0  0.0   2368   124 ?        S    16:33   0:00 /init
+gol3vka   5024  0.0  0.1  10420  5472 pts/5    Ss   16:33   0:00 -bash
+root      5735  0.0  0.0   2372   124 ?        S    16:44   0:00 /init
+gol3vka   5736  0.0  0.0   2616   528 pts/6    Ss+  16:44   0:00 sh -c "$VSCODE_WSL_EXT_LOCATION/scripts/wslServer.sh" 6a995c4f4cc2ced6e3237749973982e751cb0bf9 stable code-server .vscode-server --host=127.0.0.1 --port=0 --connection-token=548241075-2767314385-3005208258-2426886987 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   5737  0.0  0.0   2616   528 pts/6    S+   16:44   0:00 sh /mnt/c/Users/gol3vka/.vscode/extensions/ms-vscode-remote.remote-wsl-0.78.4/scripts/wslServer.sh 6a995c4f4cc2ced6e3237749973982e751cb0bf9 stable code-server .vscode-server --host=127.0.0.1 --port=0 --connection-token=548241075-2767314385-3005208258-2426886987 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   5742  0.0  0.0   2616   528 pts/6    S+   16:44   0:00 sh /home/gol3vka/.vscode-server/bin/6a995c4f4cc2ced6e3237749973982e751cb0bf9/bin/code-server --host=127.0.0.1 --port=0 --connection-token=548241075-2767314385-3005208258-2426886987 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   5746  0.1  2.1 943728 85404 pts/6    Sl+  16:44   0:04 /home/gol3vka/.vscode-server/bin/6a995c4f4cc2ced6e3237749973982e751cb0bf9/node /home/gol3vka/.vscode-server/bin/6a995c4f4cc2ced6e3237749973982e751cb0bf9/out/server-main.js --host=127.0.0.1 --port=0 --connection-token=548241075-2767314385-3005208258-2426886987 --use-host-proxy --without-browser-env-var --disable-websocket-compression --accept-server-license-terms --telemetry-level=all
+gol3vka   5757  0.0  1.1 626916 47088 pts/6    Sl+  16:44   0:00 /home/gol3vka/.vscode-server/bin/6a995c4f4cc2ced6e3237749973982e751cb0bf9/node /home/gol3vka/.vscode-server/bin/6a995c4f4cc2ced6e3237749973982e751cb0bf9/out/bootstrap-fork --type=ptyHost --logsPath /home/gol3vka/.vscode-server/data/logs/20230511T164411
+gol3vka  11553  0.0  0.0  10864  3392 pts/5    R+   17:25   0:00 ps -aux

@@ -1,0 +1,26 @@
+﻿实验一:
+t1 = ParametricPlot3D[
+  {Sin[u]*Sin[v], Sin[u]*Cos[v], Cos[u]},
+  {u, 0, Pi/2}, {v, 0, 2*Pi}, PlotPoints -> 30]
+t2 = ParametricPlot3D[
+  {1/2 + 1/2*Cos[p], 1/2*Sin[p], q},
+  {p, 0, 2*Pi}, {q, 0, 1}, PlotPoints -> 30]
+t3 = ParametricPlot3D[
+  {x, y, 0},
+  {x, -1, 1}, {y, -1, 1}, PlotPoints -> 30]
+Show[t1, t2, t3]
+
+实验二:
+f[x_] := Which[-Pi <= x < 0, -x, 0 <= x < Pi, 1];
+a[n_] :=
+  {Integrate[-x*Cos[n*x], {x, -Pi, 0}] +
+     Integrate[Cos[n*x], {x, 0, Pi}]}/Pi;
+b[n_] :=
+  {Integrate[-x*Sin[n*x], {x, -Pi, 0}] +
+     Integrate[Sin[n*x], {x, 0, Pi}]}/Pi;
+s[x_, n_] := a[0]/2 + Sum[a[k]*Cos[k*x] + b[k]*Sin[k*x], {k, 1, n}];
+m = 18;
+For[i = 1, i <= m, i += 2, t = Evaluate[s[x, i]];
+ g2 = Plot[{f[x], t}, {x, -Pi, Pi},
+   PlotStyle -> {RGBColor[0, 0, 1], RGBColor[1, 0, 0]}];
+ Print[g2]]

@@ -1,0 +1,222 @@
+\documentclass[a4paper]{ctexart}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[textwidth=14.5cm]{geometry}
+\usepackage{blindtext}
+\parindent=0pt
+
+\title{算法分析与设计 - HW1}
+\author{}
+\date{2022/09/08}
+
+\begin{document}
+\begin{sloppypar}  % 控制页边距，防止行溢出
+
+    % Title:
+    \maketitle
+
+    % Section 1:
+    \section{一些定理的证明}
+    \vspace{1em}  % 空一行
+
+    % Define theorem:
+    \newtheorem{theorem}{\bf 定理}
+
+    % Theorem 1:
+    \begin{theorem}
+        % "$...$"或"/(.../)"用于数学公式插入
+        $O(f) + O(g) = O(max(f, g))$
+    \end{theorem}
+    % Proof 1:
+    \begin{proof}
+        % "\left\{...\right."表示左侧大括号
+        % "aligned用于多行的对齐, 其中&标记了要对齐的位置
+        % "\forall"表示任意, "\exists"表示存在
+        % "^..."表示上角标, "_..."表示下角标
+        % "\leq"表示小于等于号, "\geq"表示大于等于号
+        设
+        \begin{equation}
+            \left\{
+            \begin{aligned}
+                \nonumber
+                F(N) & = O(f) \\
+                G(N) & = O(g)
+            \end{aligned}
+            \right.
+        \end{equation}
+        则$\exists C_1 > 0, \exists N_1 \in \mathcal{N}$,
+        使得$\forall N \geq N_1, F(N) \leq C_1f(N)$,\\
+        $\exists C_2 > 0, \exists N_2 \in \mathcal{N}$,
+        使得$\forall N \geq N_2, G(N) \leq C_2g(N)$.\\
+        令
+        \begin{equation}
+            \left\{
+            \begin{aligned}
+                \nonumber
+                C_3  & = max\{C_1, C_2\} \\
+                N_3  & = max\{N_1, N_2\} \\
+                h(N) & = max\{f, g\}
+            \end{aligned}
+            \right.
+        \end{equation}
+        则$\forall N > N_3$,
+        $F(N) \leq C_1f(N) \leq C_1h(N) \leq C_3h(N)$.\\
+        同理可得, $\forall N > N_3$,
+        有$G(N) \leq C_2g(N) \leq C_2h(N) \leq C_3h(N)$.\\
+        所以
+        \begin{align*}
+            O(f) + O(g) & = F(N) + G(N)          \\
+                        & \leq C_3h(N) + C_3h(N) \\
+                        & = 2C_3h(N)             \\
+                        & = O(h)                 \\
+                        & = O(max(f, g))
+            \qedhere  % 证毕符号
+        \end{align*}
+    \end{proof}
+    \vspace{1em}
+
+    % Theorem 2:
+    \begin{theorem}
+        $O(f) + O(g) = O(f + g)$
+    \end{theorem}
+    % Proof 2:
+    \begin{proof}
+        设
+        \begin{equation}
+            \left\{
+            \begin{aligned}
+                \nonumber
+                F(N) & = O(f) \\
+                G(N) & = O(g)
+            \end{aligned}
+            \right.
+        \end{equation}
+        则$\exists C_1 > 0, \exists N_1 \in \mathcal{N}$,
+        使得$\forall N \geq N_1, F(N) \leq C_1f(N)$,\\
+        $\exists C_2 > 0, \exists N_2 \in \mathcal{N}$,
+        使得$\forall N \geq N_2, G(N) \leq C_2g(N)$.\\
+        令
+        \begin{equation}
+            \left\{
+            \begin{aligned}
+                \nonumber
+                C_3 & = max\{C_1, C_2\} \\
+                N_3 & = max\{N_1, N_2\}
+            \end{aligned}
+            \right.
+        \end{equation}
+        则$\forall N > N_3$,
+        $F(N) \leq C_1f(N) \leq C_3f(N)$.\\
+        同理可得, $\forall N > N_3$,
+        有$G(N) \leq C_2g(N) \leq C_3g(N)$.\\
+        所以
+        \begin{align*}
+            O(f) + O(g) & = F(N) + G(N)          \\
+                        & \leq C_3f(N) + C_3g(N) \\
+                        & = C_3(f(N) + g(N))     \\
+                        & = O(f + g)
+            \qedhere
+        \end{align*}
+    \end{proof}
+    \vspace{1em}
+
+    % Theorem 3:
+    \begin{theorem}
+        $O(f) \cdot  O(g) = O(f \cdot g)$
+    \end{theorem}
+    % Proof 3:
+    \begin{proof}
+        设
+        \begin{equation}
+            \left\{
+            \begin{aligned}
+                \nonumber
+                F(N) & = O(f) \\
+                G(N) & = O(g)
+            \end{aligned}
+            \right.
+        \end{equation}
+        则$\exists C_1 > 0, \exists N_1 \in \mathcal{N}$,
+        使得$\forall N \geq N_1, F(N) \leq C_1f(N)$,\\
+        $\exists C_2 > 0, \exists N_2 \in \mathcal{N}$,
+        使得$\forall N \geq N_2, G(N) \leq C_2g(N)$.\\
+        令
+        \begin{equation}
+            \left\{
+            \begin{aligned}
+                \nonumber
+                C_3 & = C_1 \cdot C_2   \\
+                N_3 & = max\{N_1, N_2\}
+            \end{aligned}
+            \right.
+        \end{equation}
+        则$\forall N > N_3$,
+        $F(N) \leq C_1f(N)$.\\
+        同理可得, $\forall N > N_3$,
+        有$G(N) \leq C_2g(N)$.\\
+        所以
+        \begin{align*}
+            O(f) \cdot O(g) & = F(N) \cdot G(N)          \\
+                            & \leq C_1f(N) \cdot C_2g(N) \\
+                            & = C_3(f(N) \cdot g(N))     \\
+                            & = O(f \cdot g)
+            \qedhere
+        \end{align*}
+        \qedhere
+    \end{proof}
+    \vspace{1em}
+
+    % Theorem 4:
+    \begin{theorem}
+        $g(N) = O(f) \Rightarrow O(f) + O(g) = O(f)$
+    \end{theorem}
+    % Proof 4:
+    \begin{proof}
+        设$G(N) = O(g)$,
+        则$\exists C_1 > 0, \exists N_1 \in \mathcal{N}$,
+        使得$\forall N \geq N_1, G(N) \leq C_1g(N)$.\\
+        所以$\forall N \geq N_1$,
+        \begin{align*}
+            O(f) + O(g) & = g(N) + G(N)       \\
+                        & \leq g(N) + C_1g(N) \\
+                        & = (C_1 + 1)g(N)     \\
+                        & = O(f)
+            \qedhere
+        \end{align*}
+        \qedhere
+    \end{proof}
+    \vspace{1em}
+
+    % Theorem 5:
+    \begin{theorem}
+        $O(Cf) = O(f)$, C是一个常数
+    \end{theorem}
+    % Proof 5:
+    \begin{proof}
+        设$F(N) = O(f)$.\\
+        则$\exists C_1 > 0, \exists N_1 \in \mathcal{N}$,
+        使得$\forall N \geq N_1, F(N) \leq C_1f(N)$.\\
+        同理可得, $\exists \frac{C_1}{C} > 0, \exists N_1 \in \mathcal{N}$,
+        使得$\forall N \geq N_1, F(N) \leq (\frac{C_1}{C})Cf(N)$,\\
+        所以, $O(Cf) = O(f)$.
+        \qedhere
+    \end{proof}
+    \vspace{1em}
+
+    % Theorem 6:
+    \begin{theorem}
+        $f = O(f)$
+    \end{theorem}
+    % Proof 6:
+    \begin{proof}
+        设$F(N) = O(f)$.\\
+        则$\exists C_1 > 0, \exists N_1 \in \mathcal{N}$,
+        使得$\forall N \geq N_1, F(N) \leq C_1f(N)$.\\
+        所以, $O(f) = F(N) \leq C_1f(N) = f$.
+        \qedhere
+    \end{proof}
+    \vspace{1em}
+
+\end{sloppypar}
+\end{document}

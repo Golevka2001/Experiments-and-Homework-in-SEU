@@ -1,0 +1,112 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+enable secret 5 $1$mERr$5jbOD5lHVUWxAAsNOD6eO/
+enable password passsword
+!
+!
+ip dhcp excluded-address 192.168.10.97
+ip dhcp excluded-address 192.168.10.65
+!
+ip dhcp pool office
+ network 192.168.10.64 255.255.255.224
+ default-router 192.168.10.65
+ dns-server 114.114.114.114
+ip dhcp pool factory
+ network 192.168.10.96 255.255.255.240
+ default-router 192.168.10.97
+ dns-server 114.114.114.114
+!
+!
+!
+no ip cef
+ipv6 unicast-routing
+!
+no ipv6 cef
+!
+ipv6 dhcp pool ipv6-pool
+ address prefix 2001:da8:a3:1001::/64 lifetime 172800 86400
+ dns-server 2400:3200::1
+!
+!
+!
+username dongda secret 5 $1$mERr$1o9tbLhZqjhrTk.Y0oz1I/
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524369Z-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ ip address 192.168.10.253 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:DA8:A3:1003::1/64
+!
+interface GigabitEthernet0/1
+ ip address 192.168.10.97 255.255.255.240
+ duplex auto
+ speed auto
+ ipv6 address 2001:DA8:A3:1000::1/64
+!
+interface GigabitEthernet0/2
+ ip address 192.168.10.65 255.255.255.224
+ duplex auto
+ speed auto
+ ipv6 address 2001:DA8:A3:1001::1/64
+ ipv6 nd managed-config-flag
+ ipv6 dhcp server ipv6-pool
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 192.168.10.0 255.255.255.192 192.168.10.254 
+!
+ip flow-export version 9
+!
+ipv6 route 2001:DA8:A3:1002::/64 2001:DA8:A3:1003::2
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ password password
+ login local
+ transport input telnet
+!
+!
+!
+end
+

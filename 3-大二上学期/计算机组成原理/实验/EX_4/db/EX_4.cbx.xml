@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="EX_4">
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_4|ALU:inst21|4-1MUX8bit:inst19|BUSMUX:inst6|lpm_mux:$00000" CBX_FILE_NAME="mux_8vc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_4|ALU:inst21|4-1MUX8bit:inst19|BUSMUX:inst5|lpm_mux:$00000" CBX_FILE_NAME="mux_8vc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_4|ALU:inst21|lpm_add_sub0:inst15|lpm_add_sub:LPM_ADD_SUB_component" CBX_FILE_NAME="add_sub_3vh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_4|ROM_RAM:inst|LPM_RAM_DQ:RAM|altram:sram|altsyncram:ram_block" CBX_FILE_NAME="altsyncram_fr71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_4|ROM_RAM:inst|LPM_ROM:ROM|altrom:srom|altsyncram:rom_block" CBX_FILE_NAME="altsyncram_3101.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_4|ROM_RAM:inst|lpm_mux0:inst|lpm_mux:LPM_MUX_component" CBX_FILE_NAME="mux_jbe.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_4|lpm_counter0:inst5|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_suj.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_4|lpm_mux1:inst6|lpm_mux:LPM_MUX_component" CBX_FILE_NAME="mux_dbe.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|EX_4|ALU:inst21|4-1MUX8bit:inst19|BUSMUX:inst4|lpm_mux:$00000" CBX_FILE_NAME="mux_8vc.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

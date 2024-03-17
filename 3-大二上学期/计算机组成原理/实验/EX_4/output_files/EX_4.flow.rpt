@@ -1,0 +1,145 @@
+Flow report for EX_4
+Wed Dec 01 18:24:44 2021
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Wed Dec 01 18:24:44 2021       ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
+; Revision Name                      ; EX_4                                        ;
+; Top-level Entity Name              ; EX_4                                        ;
+; Family                             ; Cyclone IV GX                               ;
+; Total logic elements               ; 200                                         ;
+;     Total combinational functions  ; 184                                         ;
+;     Dedicated logic registers      ; 32                                          ;
+; Total registers                    ; 32                                          ;
+; Total pins                         ; 47                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 1,024                                       ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total GXB Receiver Channel PCS     ; 0                                           ;
+; Total GXB Receiver Channel PMA     ; 0                                           ;
+; Total GXB Transmitter Channel PCS  ; 0                                           ;
+; Total GXB Transmitter Channel PMA  ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 12/01/2021 18:19:13 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; EX_4                ;
++-------------------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                              ;
++-------------------------------------+------------------------------------------+---------------+-------------+----------------+
+; Assignment Name                     ; Value                                    ; Default Value ; Entity Name ; Section Id     ;
++-------------------------------------+------------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 273184160640978.163835395214492          ; --            ; --          ; --             ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                                       ; --            ; --          ; eda_simulation ;
+; EDA_NETLIST_WRITER_OUTPUT_DIR       ; D:/Quartus/Project/EX_4/simulation/qsim/ ; --            ; --          ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                              ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)                ; <None>        ; --          ; --             ;
+; IP_TOOL_NAME                        ; LPM_ADD_SUB                              ; --            ; --          ; --             ;
+; IP_TOOL_NAME                        ; LPM_MUX                                  ; --            ; --          ; --             ;
+; IP_TOOL_NAME                        ; LPM_COUNTER                              ; --            ; --          ; --             ;
+; IP_TOOL_NAME                        ; LPM_MUX                                  ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 13.1                                     ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 13.1                                     ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 13.1                                     ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 13.1                                     ; --            ; --          ; --             ;
+; MISC_FILE                           ; lpm_add_sub0.bsf                         ; --            ; --          ; --             ;
+; MISC_FILE                           ; lpm_add_sub0.cmp                         ; --            ; --          ; --             ;
+; MISC_FILE                           ; lpm_mux0.bsf                             ; --            ; --          ; --             ;
+; MISC_FILE                           ; lpm_mux0.cmp                             ; --            ; --          ; --             ;
+; MISC_FILE                           ; lpm_counter0.bsf                         ; --            ; --          ; --             ;
+; MISC_FILE                           ; lpm_counter0.cmp                         ; --            ; --          ; --             ;
+; MISC_FILE                           ; lpm_mux1.bsf                             ; --            ; --          ; --             ;
+; MISC_FILE                           ; lpm_mux1.cmp                             ; --            ; --          ; --             ;
+; PARTITION_COLOR                     ; 16764057                                 ; --            ; --          ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                    ; --            ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                   ; --            ; --          ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                             ; --            ; --          ; --             ;
++-------------------------------------+------------------------------------------+---------------+-------------+----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:04     ; 1.0                     ; 4793 MB             ; 00:00:05                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4608 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4625 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4609 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4625 MB             ; 00:00:01                           ;
+; Total                ; 00:00:08     ; --                      ; --                  ; 00:00:09                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Flow OS Summary                                                                   ;
++----------------------+------------------+-----------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++----------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis ; w6rst            ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer   ; w6rst            ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer   ; w6rst            ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer   ; w6rst            ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer   ; w6rst            ; Windows 7 ; 6.2        ; x86_64         ;
++----------------------+------------------+-----------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off EX_4 -c EX_4
+quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog EX_4 -c EX_4 --vector_source=D:/Quartus/Project/EX_4/EX_4.vwf --testbench_file=D:/Quartus/Project/EX_4/simulation/qsim/EX_4.vwf.vt
+quartus_eda --functional=on --flatten_buses=off --simulation=on --tool=modelsim_oem --format=verilog --output_directory=D:/Quartus/Project/EX_4/simulation/qsim/ EX_4 -c EX_4
+quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog EX_4 -c EX_4 --vector_source=D:/Quartus/Project/EX_4/EX_4.vwf --testbench_file=D:/Quartus/Project/EX_4/simulation/qsim/EX_4.vwf.vt
+quartus_eda --functional=on --flatten_buses=off --simulation=on --tool=modelsim_oem --format=verilog --output_directory=D:/Quartus/Project/EX_4/simulation/qsim/ EX_4 -c EX_4
+
+
+

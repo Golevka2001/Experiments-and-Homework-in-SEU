@@ -1,0 +1,101 @@
+Shared Data:
+semaphore put_over = 0, take_over_son = 1, take_over_daughter = 1;
+// put_over: 父亲向盘中放完水果
+// take_over-son: 儿子取完水果
+// take_over_daughter: 女儿取完水果
+
+Dad:
+do{
+    wait(take_over_son);
+    wait(take_over_daughter);
+    put(fruits);
+    signal(put_over);
+}while(1)
+
+Son:
+do{
+    wait(put_over);
+    wait(take_over_daughter);
+    take(apples);
+    signal(take_over_son);
+}while(apples != 0)
+
+Daughter:
+do{
+    wait(put_over);
+    wait(take_over_son);
+    take(oranges);
+    signal(take_over_daughter);
+}while(oranges != 0)
+
+
+semaphore sem_A = 1, sem_B = 0;
+
+A:
+do{
+    wait(sem_A);
+    while(num_A - num_B < M)
+        import(A);
+    signal(sem_B);
+}while(1)
+
+B:
+do{
+    wait(sem_B);
+    while(num_B - num_A < N)
+        import(B);
+    signal(sem_A);
+}while(1)
+
+
+semaphore wake_up = 0, ready = 0, done = 0, next = 0;
+// wake_up: 顾客叫醒睡觉的理发师
+// ready: 顾客就绪, 等待理发
+// done: 理发师完成理发
+// next: 理发师通知下一个顾客进入
+
+Customer:
+do{
+    enter(waiting_room);
+    if(!waiting_queue.full())  // 若等待队列已满（无空闲椅子）
+    {
+        leave(waiting_room);  // 离开理发店
+    }
+    else  // 若等待队列未满（有空闲椅子）
+    {
+        waiting_queue.push(customer);  // 加入等待队列尾端
+        if(customer == waiting_queue.front())  // 若排到等待队列的第一位
+        {
+            if(barber_state == buzy)  // 若理发师在忙
+            {
+                wait(next);
+                waiting_queue.pop();
+                enter(barber_room);
+                signal(ready);
+            }
+            else if(barber_state == sleeping)  // 若理发师在睡觉
+            {
+                waiting_queue.pop();
+                enter(barber_room);
+                signal(wake_up)
+                signal(ready);
+            }
+            be_serverd;
+            wait(done);
+            leave(barber_room);
+            leave(waiting_room);
+        }
+    }
+}while(1)
+
+Barber:
+do{
+    sleep;
+    barber_state = sleeping;
+    wait(wake_up);
+    barber_state = buzy;
+    wait(ready);
+    serve;
+    signal(done);
+    signal(next);
+}while(1)

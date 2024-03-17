@@ -1,0 +1,168 @@
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SW1
+!
+!
+!
+ip dhcp excluded-address 192.168.10.33
+!
+ip dhcp pool dhcp-pool1
+ network 192.168.10.32 255.255.255.224
+ default-router 192.168.10.33
+ dns-server 114.114.114.114
+!
+!
+ip routing
+!
+ipv6 unicast-routing
+!
+!
+!
+!
+username se secret 5 $1$mERr$mo5w8Vf1taR9pYrH5yQoz/
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ no switchport
+ ip address 192.168.255.1 255.255.255.252
+ duplex auto
+ speed auto
+ ipv6 address 2001:250:A160:9::1/64
+ ipv6 enable
+!
+interface FastEthernet0/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/3
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/4
+ switchport access vlan 10
+!
+interface FastEthernet0/5
+ switchport access vlan 20
+!
+interface FastEthernet0/6
+ switchport access vlan 10
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ mac-address 00d0.d341.4a01
+ ip address 192.168.10.33 255.255.255.224
+ ipv6 address 2001:250:A160:4::2/64
+ ipv6 enable
+!
+interface Vlan20
+ mac-address 00d0.d341.4a02
+ ip address 192.168.10.17 255.255.255.240
+ ipv6 address 2001:250:A160:5::2/64
+!
+interface Vlan30
+ mac-address 00d0.d341.4a03
+ no ip address
+!
+router ospf 1
+ log-adjacency-changes
+ network 192.168.10.32 0.0.0.31 area 1
+ network 192.168.10.16 0.0.0.15 area 1
+ network 192.168.255.0 0.0.0.3 area 1
+!
+ip classless
+!
+ip flow-export version 9
+!
+ipv6 route ::/0 2001:250:A160:9::2
+!
+access-list 1 permit host 192.168.10.10
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ access-class 1 in
+ login local
+ transport input telnet
+!
+!
+!
+!
+end
+

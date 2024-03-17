@@ -1,0 +1,104 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524221G-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ ip address 58.212.196.2 255.255.255.252
+ ip nat outside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 10.255.255.2 255.255.255.252
+ ip access-group 100 in
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ ip address 10.255.255.6 255.255.255.252
+ ip access-group 101 in
+ ip access-group 100 out
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip nat inside source list 1 interface GigabitEthernet0/0 overload
+ip nat inside source static tcp 192.168.87.1 80 58.212.196.2 80 
+ip nat inside source static tcp 192.168.87.1 53 114.114.114.114 53 
+ip nat inside source static udp 192.168.87.1 53 114.114.114.114 53 
+ip classless
+ip route 172.16.1.0 255.255.255.0 10.255.255.1 
+ip route 192.168.87.0 255.255.255.0 10.255.255.5 
+ip route 192.168.97.0 255.255.255.0 10.255.255.5 
+ip route 0.0.0.0 0.0.0.0 58.212.196.1 
+!
+ip flow-export version 9
+!
+!
+access-list 1 permit 172.16.1.0 0.0.0.255
+access-list 1 permit 192.168.87.0 0.0.0.255
+access-list 1 permit 192.168.97.0 0.0.0.255
+access-list 100 permit udp 172.16.1.0 0.0.0.255 host 192.168.87.1 eq domain
+access-list 100 deny ip 172.16.1.0 0.0.0.255 host 192.168.87.1
+access-list 100 permit ip any any
+access-list 101 deny icmp 192.168.97.0 0.0.0.255 172.16.1.0 0.0.0.255
+access-list 101 permit tcp 192.168.97.0 0.0.0.255 172.16.1.0 0.0.0.255 eq telnet
+access-list 101 permit ip any any
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
